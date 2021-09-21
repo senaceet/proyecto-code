@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+/* Reseteo de estilos */
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box; /* Funciona para hacer que el margin y el padding pasen a ser parte de la caja y que no le aumenten el tamaño */
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    background-color: #E2E6EE;
+}
+
+.main {
+    margin: 10px;
+}
+
+/* ---------------------------------------------------Navbar--------------------------------------------------------------- */
+
+.main .topnav {
+    width: calc(100% - 20px); /* En este caso se aplica para distanciar la topnav del main */
+    height: 60px;
+    display: flex;
+    position: fixed; /* Se emplea para que el elemento no se mueva de su lugar */
+    top: 10px;
+}
+
+.main .topnav .hamburger {
+    width: 70px;
+    height: 100%;
+    background-color: #7B61FF;
+    padding: 15px 17px;
+    border-top-left-radius: 20px; /* Especifica el lado que va a tener el borde curvo, en este caso el izquierdo */
+    cursor: pointer;
+}
+
+.main .topnav .hamburger div {
+    width: 35px;
+    height: 4px;
+    background-color: #fdf5e6;
+    margin: 5px 0px;
+    border-radius: 5px;
+}
+
+.main .topnav .topmenu {
+    width: calc(100% - 70px);
+    background-color: #fff;
+    height: 100%;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.main .topnav .topmenu .logo {
+    color: #7b61ff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.main .topnav .topmenu ul {
+    display: flex;
+}
+
+.main .topnav .topmenu ul li a {
+    display: block;
+    margin: 0 10px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #7B61FF;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    color: #7B61FF;
+}
+
+.main .topnav .topmenu ul li a:hover {
+    background-color: #7B61FF;
+    color: #fff;
+    transition: 0.5s;
+}
+
+/* --------------------------------------------------Sidebar----------------------------------------------------------- */
+
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    background: #7B61FF;
+    width: 225px;
+    height: calc(100% - 80px);
+    border-bottom-left-radius: 20px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 20px;
+    color: #e6e6fa;
+    position: relative;
+    margin-bottom: 1px;
+}
+
+.icon {
+    display: inline-block;
+}
+
+.title {
+    display: inline-block;
+}
+
+.sidebar ul li a:hover,
+.active {
+    background-color: #B1A2FF;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.sidebar ul li a:hover:before,
+.active:before {
+    display: block;
+}
+
+#child {
+    border-end-start-radius: 20px;
+}
+
+/* --------------------------------------------------Main Container----------------------------------------------------------- */
+
+.maincontainer {
+    width: calc(100% - 225px);
+    margin-top: 60px;
+    margin-left: 225px;
+    padding: 15px;
+    transition: all 0.5s ease;
+}
+
+.maincontainer .item {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.main.collapse .sidebar {
+    width: 70px;
+}
+  
+.main.collapse .sidebar ul li a {
+    text-align: center; 
+}
+  
+.main.collapse .sidebar ul li a span.icon {
+    margin: 0;
+}
+  
+.main.collapse .sidebar ul li a span.title {
+    display: none;
+}
+  
+.main.collapse .maincontainer {
+    width: (100% - 70px);
+    margin-left: 70px;
+}
