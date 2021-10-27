@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/stylesform.css' %}">
+    <link rel="shortcut icon" href="https://i.imgur.com/xptcycV.png" type="image/x-icon">
+    <title>Registro | Usuarios</title>
+</head>
+<body>
+    <form action="/registrarUsuario/" method="post">
+        {% csrf_token %}
+        <div class="main">
+            <div class="title">
+                Registrar Usuarios
+            </div>    
+            <div class="forma">
+                <div class="inputs">
+                    <input type="text" id="txtNombreUsuario" placeholder="Nombre del usuario..." class="input" name="txtNombreUsuario">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="text" id="txtApellidoUsuario" placeholder="Apellido del usuario..." class="input" name="txtApellidoUsuario">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="text" id="txtTelefonoUsuario" placeholder="Telefono del usuario..." class="input" name="txtTelefonoUsuario">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="email" id="txtEmailUsuario" placeholder="Email del usuario..." class="input" name="txtEmailUsuario" required>
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="text" id="txtNumeroDocumento" placeholder="Número de documento del usuario..." class="input" name="txtNumeroDocumento">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="text" id="txtUsuario" placeholder="Usuario..." class="input" name="txtUsuario">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="password" id="txtContraseña" placeholder="Contraseña..." class="input" name="txtContraseña">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                        <select name="selectEstado" id="selectProduct">
+                            <option value="hide" Selected disabled>Selecciona una opción.</option>
+                            {% for e in estados %}
+                            <option>{{e.DescripcionEstado}}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+                <div class="inputs">
+                    <select name="selectRoles" id="selectRoles">
+                        <option value="hide" Selected disabled>Selecciona una opción.</option>
+                        {% for r in roles %}
+                        <option>{{r.DescripcionRol}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="inputs">
+                    <select name="selectTipoDocumento" id="selectTipoDocumento">
+                        <option value="hide" Selected disabled>Selecciona una opción.</option>
+                        {% for d in tipodocumento %}
+                        <option>{{d.DescripcionTipoDoc}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button class="goahead" type="submit">Guardar</button>
+                    <p>Por favor, asegúrate de que los datos estén bien escritos y da 'clic' en <b>Guardar</b>.</p>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

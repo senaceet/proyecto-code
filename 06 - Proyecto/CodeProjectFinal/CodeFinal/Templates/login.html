@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/styleslogin.css' %}">
+    <link rel="shortcut icon" href="https://i.imgur.com/xptcycV.png" type="image/x-icon">
+    <title>Login | Violetas</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="main">
+            <div class="title">
+                Iniciar Sesión
+            </div>
+    
+            <div class="welcome">
+                <div class="text">
+                    ¡Bienvenido de nuevo! Por favor inicia sesión con tu cuenta.
+                </div>
+            </div>
+    
+            <div class="forma">
+                <div class="inputs">
+                    <input type="text" id="" placeholder="Usuario" class="input" name="username">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+                <div class="inputs">
+                    <input type="password" id="" placeholder="Contraseña" class="input" name="password">
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="buttons">
+                    <button class="goahead" type="submit">Iniciar sesión</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="waves">
+        <div class="wave circulo a"></div>
+        <div class="wave circulo b"></div>
+        <div class="wave circulo c"></div>
+      </div>
+    
+    <script src="https://kit.fontawesome.com/f82c10daa4.js" crossorigin="anonymous"></script>
+</body>
+</html>
