@@ -12,7 +12,7 @@ Desarrollar un Sistema de Control de Inventarios que funcione como soporte para 
 * Elaborar diferentes modelos de procesos y procedimientos de la empresa.
 * Construir la base de datos en la que se va a almacenar toda la información que se necesite controlar. (SQL)
 * Desarrollar la interfaz gráfica acorde a la necesidad y el querer de la empresa. (HTML, CSS, JS, etc.)
-* Conectar la interfaz gráfica con la base de datos para que la información pueda ser manipulada por el usuario. (Java)
+* Conectar la interfaz gráfica con la base de datos para que la información pueda ser manipulada por el usuario. (Python)
 * Realizar las pruebas necesarias para determinar el correcto funcionamiento del sistema antes de que salga a producción.
 
 ## :heavy_check_mark: Planteamiento del Problema
