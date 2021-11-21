@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/stylesindex.css' %}">
+    <link rel="shortcut icon" href="https://i.imgur.com/xptcycV.png" type="image/x-icon">
+    <title>Violetas | Index</title>
+</head>
+<body>
+    <nav>
+        <a href="#seccion-1">Sobre nosotras</a>
+        <a href="#seccion-2">Productos</a>
+        <a href="#seccion-3">Contáctenos</a>
+        <a href="{% url 'login' %}" id="loginbtn">Login</a>
+    </nav>
+
+    <!-- Sección 1 -->
+    <section id="seccion-1">
+        <h1>Sobre nosotras</h1>
+        <img src="https://i.imgur.com/xptcycV.png" id="violetasicon" alt="">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci officiis velit voluptatum cupiditate, vitae repellendus esse animi molestias error, necessitatibus impedit ut consequatur voluptates tempore perferendis nemo quia, culpa illum quasi magni ipsam in ipsa. Dicta in, obcaecati voluptatem error eos ipsum. Rem, neque, ipsa eius repudiandae consequatur, inventore necessitatibus porro assumenda aspernatur soluta sed illum. Unde, id inventore? Eveniet, odio. Quam repellat cupiditate repellendus hic soluta molestiae, tenetur est harum ipsam architecto dolore, aliquid, magnam ex voluptates vitae ipsum at error tempore dicta aperiam totam nihil esse ad reiciendis! Tempore accusamus rem magnam alias sunt, aspernatur quasi quis voluptates possimus veritatis ab dolorum ipsa facere beatae dignissimos voluptatem exercitationem. Facere odio explicabo amet nobis rem reprehenderit officiis eos consequatur a voluptates cumque officia quaerat, eum dolorum nesciunt ab sunt incidunt, dolore unde perferendis. Natus, culpa, odio qui voluptatum iste ipsum magni libero eaque rerum laudantium architecto porro nam earum?</p>
+    </section>
+
+    <!-- Sección 2 -->
+    <section id="seccion-2">
+        <h1>Productos</h1>
+        <div class="mainimg">
+            <div class="column">
+                <img src="https://i.imgur.com/myJweKl.jpg" class="products" alt="" width="300px">
+                <img src="https://i.imgur.com/dTiONIn.jpg" class="products" alt="" width="300px">
+                <img src="https://i.imgur.com/caOdVMY.png" class="products" alt="" width="300px">
+                <img src="https://i.imgur.com/y7vW4YM.jpg" class="products" alt="" width="300px">
+                <img src="https://i.imgur.com/PvK94QF.jpg" class="products" alt="" width="300px">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3 -->
+    <section id="seccion-3">
+        <h1>Contáctenos</h1>
+        <footer>
+            <div class="main-content">
+              <div class="left box">
+                <h2></h2>
+              </div>
+      
+              <div class="center box">
+                <h2>Información.</h2>
+                <div class="content">
+                  <div class="place">
+                    <span><i class="ph-phone"></i></span>
+                    <span class="text">Número de Teléfono: <b>3642966</b></span>
+                  </div>
+                  <div class="phone">
+                    <span><i class="ph-whatsapp-logo"></i></span>
+                    <span class="text">Whatsapp: <b>31275409109</b></span>
+                  </div>
+                  <div class="email">
+                    <span><i class="ph-envelope"></i></span>
+                    <span class="text">Email: <b>distribuidoravioletas@gmail.com</b></span>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="right box">
+                <h2>Envíenos un mensaje.</h2>
+                <div class="content">
+                  <form action="#">
+                    <div class="email">
+                      <div class="text">Email *</div>
+                      <input type="email" required>
+                    </div>
+                    <div class="msg">
+                      <div class="text">Mensaje *</div>
+                      <textarea rows="2" cols="25" required></textarea>
+                    </div>
+                    <div class="btn">
+                      <button type="submit">Enviar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </footer>
+    </section>
+    <script src="https://kit.fontawesome.com/f82c10daa4.js" crossorigin="anonymous"></script>
+</body>
+</html>
