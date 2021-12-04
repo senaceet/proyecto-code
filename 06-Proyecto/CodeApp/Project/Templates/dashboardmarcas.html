@@ -99,7 +99,7 @@
                         <td>{{marcas.DescripcionMarca}}</td>
                         <td>
                             <a href=""><i class="fas fa-edit"></i></a>
-                            <a href=""><i class="fas fa-trash-alt"></i></a>
+                            <a href="{% url 'eliminarmarcas' marcas.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

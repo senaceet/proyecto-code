@@ -123,7 +123,7 @@
                         <td>{{productos.Estado}}</td>
                         <td>
                             <a href=""><i class="fas fa-edit"></i></a>
-                            <a href=""><i class="fas fa-trash-alt"></i></a>
+                            <a href="{% url 'eliminarproductos' productos.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

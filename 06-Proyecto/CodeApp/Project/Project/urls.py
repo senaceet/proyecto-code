@@ -35,4 +35,16 @@ urlpatterns = [
     path('createpaisorigen', views.createpaisorigen, name='createpaisorigen'),
     # Forms delete 
     path('eliminarusuarios/<id>', views.eliminarusuarios, name='eliminarusuarios'),
+    path('eliminarproductos/<id>', views.eliminarproductos, name='eliminarproductos'),
+    path('eliminarclientes/<id>', views.eliminarclientes, name='eliminarclientes'),
+    path('eliminarproveedores/<id>', views.eliminarproveedores, name='eliminarproveedores'),
+    path('eliminarroles/<id>', views.eliminarroles, name='eliminarroles'),
+    path('eliminartipodoc/<id>', views.eliminartipodoc, name='eliminartipodoc'),
+    path('eliminarcategorias/<id>', views.eliminarcategorias, name='eliminarcategorias'),
+    path('eliminarventas/<id>', views.eliminarventas, name='eliminarventas'),
+    path('eliminarmateriales/<id>', views.eliminarmateriales, name='eliminarmateriales'),
+    path('eliminarestados/<id>', views.eliminarestados, name='eliminarestados'),
+    path('eliminarmarcas/<id>', views.eliminarmarcas, name='eliminarmarcas'),
+    path('eliminarpaisorigen/<id>', views.eliminarpaisorigen, name='eliminarpaisorigen'),
+    # Forms update
 ]

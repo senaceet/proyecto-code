@@ -99,7 +99,7 @@
                         <td>{{tipodoc.DescripcionTipoDoc}}</td>
                         <td>
                             <a href=""><i class="fas fa-edit"></i></a>
-                            <a href=""><i class="fas fa-trash-alt"></i></a>
+                            <a href="{% url 'eliminartipodoc' tipodoc.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

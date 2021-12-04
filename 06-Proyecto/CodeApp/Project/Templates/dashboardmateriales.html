@@ -99,7 +99,7 @@
                         <td>{{materiales.DescripcionMateriales}}</td>
                         <td>
                             <a href=""><i class="fas fa-edit"></i></a>
-                            <a href=""><i class="fas fa-trash-alt"></i></a>
+                            <a href="{% url 'eliminarmateriales' materiales.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

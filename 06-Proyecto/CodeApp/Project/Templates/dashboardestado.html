@@ -99,7 +99,7 @@
                         <td>{{estado.DescripcionEstado}}</td>
                         <td>
                             <a href=""><i class="fas fa-edit"></i></a>
-                            <a href=""><i class="fas fa-trash-alt"></i></a>
+                            <a href="{% url 'eliminarestado' estado.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

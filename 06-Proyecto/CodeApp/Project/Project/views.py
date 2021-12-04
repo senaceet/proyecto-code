@@ -269,6 +269,60 @@ def eliminarusuarios(request, id):
     usuarios.delete()
     return redirect(to='dashusuarios')
     
+def eliminarproductos(request, id):
+    productos = get_object_or_404(Productos, id=id)
+    productos.delete()
+    return redirect(to='dashproductos')
+
+def eliminarclientes(request, id):
+    clientes = get_object_or_404(Clientes, id=id)
+    clientes.delete()
+    return redirect(to='dashclientes')
+
+def eliminarproveedores(request, id):
+    proveedores = get_object_or_404(Proveedores, id=id)
+    proveedores.delete()
+    return redirect(to='dashproveedores')
+
+def eliminarroles(request, id):
+    roles = get_object_or_404(Roles, id=id)
+    roles.delete()
+    return redirect(to='dashroles')
+
+def eliminartipodoc(request, id):
+    tipodoc = get_object_or_404(TipoDocumento, id=id)
+    tipodoc.delete()
+    return redirect(to='dashtipodoc')
+
+def eliminarcategorias(request, id):
+    categorias = get_object_or_404(Categorias, id=id)
+    categorias.delete()
+    return redirect(to='dashcategoria')
+
+def eliminarventas(request, id):
+    ventas = get_object_or_404(Ventas, id=id)
+    ventas.delete()
+    return redirect(to='dashventas')
+
+def eliminarmateriales(request, id):
+    materiales = get_object_or_404(Materiales, id=id)
+    materiales.delete()
+    return redirect(to='dashmateriales')
+
+def eliminarestados(request, id):
+    estados = get_object_or_404(Estados, id=id)
+    estados.delete()
+    return redirect(to='dashestado')
+
+def eliminarmarcas(request, id):
+    marcas = get_object_or_404(Marcas, id=id)
+    marcas.delete()
+    return redirect(to='dashmarcas')
+
+def eliminarpaisorigen(request, id):
+    paises = get_object_or_404(Paises, id=id)
+    paises.delete()
+    return redirect(to='dashpais')
 
 def index(request):
     return render(request, 'index.html', {
