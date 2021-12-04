@@ -111,7 +111,7 @@ MEDIA_URL = '/IMG/' #Aquí especificamos cuál será la URL con la que buscaremo
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'Static'), #Aquí especificamos la ruta de los archivos estáticos, estar pendiente de los slash # Ruta AWS/Azure...
+    os.path.join(BASE_DIR, 'Static'), #Aquí especificamos la ruta de los archivos estáticos, estar pendiente de los slash # Ruta AWS/Azuree...
 )
 
 STATIC_ROOT = BASE_DIR / '/Static/' # Ruta local donde se almacenarán los archivos estáticos # Si hago deploy, debo invertir las barras verticales para que funcione
