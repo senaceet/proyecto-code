@@ -310,7 +310,7 @@ def eliminarmateriales(request, id):
     return redirect(to='dashmateriales')
 
 def eliminarestados(request, id):
-    estados = get_object_or_404(Estados, id=id)
+    estados = get_object_or_404(Estado, id=id)
     estados.delete()
     return redirect(to='dashestado')
 
@@ -320,7 +320,7 @@ def eliminarmarcas(request, id):
     return redirect(to='dashmarcas')
 
 def eliminarpaisorigen(request, id):
-    paises = get_object_or_404(Paises, id=id)
+    paises = get_object_or_404(PaisOrigen, id=id)
     paises.delete()
     return redirect(to='dashpais')
 
