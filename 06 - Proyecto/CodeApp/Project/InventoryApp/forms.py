@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import AbstractUser
 from .models import TipoDocumento, Usuarios, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Ventas, PaisOrigen
 
 class UsuariosForm(forms.ModelForm): # Formulario para crear usuarios

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib.auth import login 
@@ -105,7 +105,7 @@ def dashboardusuarios(request):
         'usuarios' : usuarios
 } )
     
-# Funciones utilizando Forms.py
+# Funciones de agregar utilizando Forms.py
 
 def createusuarios(request):
     cusuarios = UsuariosForm()
@@ -127,7 +127,7 @@ def createproductos(request):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Producto creado correctamente')
-            return redirect('dashproductos')
+            return redirect('dashproductos') 
         
     return render(request, 'createproductos.html', {
         'cproductos' : cproductos
@@ -261,6 +261,14 @@ def createpaisorigen(request):
     return render(request, 'createpaises.html', {
         'cpaises' : cpaises
 })
+
+# Funciones de eliminar
+
+def eliminarusuarios(request, id):
+    usuarios = get_object_or_404(Usuarios, id=id)
+    usuarios.delete()
+    return redirect(to='dashusuarios')
+    
 
 def index(request):
     return render(request, 'index.html', {

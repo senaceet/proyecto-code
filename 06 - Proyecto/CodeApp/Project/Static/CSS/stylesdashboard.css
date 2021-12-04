@@ -22,6 +22,7 @@ body {
 
 /* ---------------------------------------------------Navbar--------------------------------------------------------------- */
 .titleItem {
+    font-size: 25px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -65,7 +66,7 @@ body {
 
 .main .topnav .topmenu .logo {
     color: #4c2882;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 3px;
 }
@@ -92,6 +93,7 @@ body {
     transition: 0.5s;
 }
 
+
 /* --------------------------------------------------Sidebar----------------------------------------------------------- */
 
 .sidebar {
@@ -106,7 +108,7 @@ body {
 
 .sidebar ul li a {
     display: block;
-    padding: 20px;
+    padding: 16px;
     color: #e6e6fa;
     position: relative;
     margin-bottom: 1px;
@@ -137,8 +139,9 @@ body {
 }
 
 /* --------------------------------------------------Main Container----------------------------------------------------------- */
+
 .table {
-    border: 1px solid #000;
+    border-radius: 10px;
     border-collapse: collapse;
     margin: auto;
 }
@@ -146,7 +149,6 @@ body {
 .table th {
     font-size: 14px;
     padding: 8px;
-    border: 1px solid #000;
     text-align: center;
     background-color: #6c39b9;
     color: #fff;
@@ -155,7 +157,7 @@ body {
 .table td {
     font-size: 14px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #ffe4c4;
     text-align: center;
 }
 

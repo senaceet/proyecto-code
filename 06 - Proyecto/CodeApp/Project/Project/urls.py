@@ -15,12 +15,12 @@ urlpatterns = [
     path('dashboardestado', views.dashboardestado, name='dashestado'), # Registro creado
     path('dashboardmarcas', views.dashboardmarcas, name='dashmarcas'), # Registro creado
     path('dashboardmateriales', views.dashboardmateriales, name='dashmateriales'), # Registro creado
-    path('dashboardpaisorigen', views.dashboardpaisorigen, name='dashpais'),
+    path('dashboardpaisorigen', views.dashboardpaisorigen, name='dashpais'), # Registro creado
     path('dashboardproveedores', views.dashboardproveedores, name='dashproveedores'), # Registro creado
     path('dashboardroles', views.dashboardroles, name='dashroles'), # Registro creado
     path('dashboardtipodoc', views.dashboardtipodoc, name='dashtipodoc'), # Registro creado
     path('dashboardusuarios', views.dashboardusuarios, name='dashusuarios'), # Registro creado
-    # Forms
+    # Forms create
     path('createusuarios', views.createusuarios, name='createusuarios'),
     path('createproductos', views.createproductos, name='createproductos'),
     path('createclientes', views.createclientes, name='createclientes'),
@@ -33,4 +33,6 @@ urlpatterns = [
     path('createestados', views.createestados, name='createestados'),
     path('createmarcas', views.createmarcas, name='createmarcas'),
     path('createpaisorigen', views.createpaisorigen, name='createpaisorigen'),
+    # Forms delete 
+    path('eliminarusuarios/<id>', views.eliminarusuarios, name='eliminarusuarios'),
 ]
