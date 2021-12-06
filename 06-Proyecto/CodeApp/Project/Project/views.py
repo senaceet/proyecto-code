@@ -324,6 +324,9 @@ def eliminarpaisorigen(request, id):
     paises.delete()
     return redirect(to='dashpais')
 
+# Funciones de editar
+
+
 def index(request):
     return render(request, 'index.html', {
 } )
