@@ -63,6 +63,10 @@ a:hover {
 
 #loginbtn:hover {
   color: #fff;
+  transition: all .7s;
+  background: #3a0ca3;
+  border-radius: 7px;
+  padding: 7px;
 }
 
 /* Secciones */
