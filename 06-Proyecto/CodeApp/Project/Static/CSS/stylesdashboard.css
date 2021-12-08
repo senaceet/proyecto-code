@@ -1,225 +1,296 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-/* Reseteo de estilos */
-
 * {
-    margin: 0;
     padding: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box; /* Funciona para hacer que el margin y el padding pasen a ser parte de la caja y que no le aumenten el tamaño */
-    font-family: 'Inter', sans-serif;
-}
+    margin: 0;
+}  
 
 body {
-    background-color: #E2E6EE;
+    font-family: "Inter", sans-serif;
 }
 
-.main {
-    margin: 10px;
+/* Esta es toda la topbar */
+
+.header {
+    background-color: #212121;
+    height: 55px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
-/* ---------------------------------------------------Navbar--------------------------------------------------------------- */
-.titleItem {
-    font-size: 25px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.main .topnav {
-    width: calc(100% - 20px); /* En este caso se aplica para distanciar la topnav del main */
-    height: 60px;
-    display: flex;
-    position: fixed; /* Se emplea para que el elemento no se mueva de su lugar */
-    top: 10px;
-}
-
-.main .topnav .hamburger {
-    width: 70px;
-    height: 100%;
-    background-color: #4c2882;
-    padding: 15px 17px;
-    border-top-left-radius: 20px; /* Especifica el lado que va a tener el borde curvo, en este caso el izquierdo */
-    cursor: pointer;
-}
-
-.main .topnav .hamburger div {
-    width: 35px;
-    height: 4px;
-    background-color: #fdf5e6;
-    margin: 5px 0px;
-    border-radius: 5px;
-}
-
-.main .topnav .topmenu {
-    width: calc(100% - 70px);
-    background-color: #fff;
-    height: 100%;
-    border-top-right-radius: 20px;
+.nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    max-width: 992px;
+    margin: 0 auto;
 }
 
-.main .topnav .topmenu .logo {
-    color: #4c2882;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-
-.main .topnav .topmenu ul {
-    display: flex;
-}
-
-.main .topnav .topmenu ul li a {
-    display: block;
-    margin: 0 10px;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #4c2882;
-    text-align: center;
-    line-height: 35px;
-    border-radius: 50%;
-    color: #4c2882;
-}
-
-.main .topnav .topmenu ul li a:hover {
-    background-color: #4c2882;
+.nav-link {
     color: #fff;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 35px;
+    line-height: 55px;
+    color: #fff;
+}
+
+nav {
+    color: #fff;
+    grid-area: nav;
+}
+
+.nav-menu {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.nav-menu-item {
+    font-size: 1rem;
+    margin: 0 10px;
+    line-height: 55px;
+    width: max-content;
+}
+
+.nav-menu-link {
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
+.nav-menu-link:hover {
+    background-color: #6a5acd;
     transition: 0.5s;
 }
 
+.nav-toggle {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    display: none;
+    cursor: pointer;
+}
 
-/* --------------------------------------------------Sidebar----------------------------------------------------------- */
+.nav-link-sign-out {
+    color: #fff;
+    background-color: #6a5acd;
+}
+
+.nav-link-sign-out:hover {
+    background-color: #8677e7;
+    transition: 0.5s;
+}
+
+/* Este es el container */
+  
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1fr 0.2fr;
+    grid-template-areas:
+      "nav nav nav nav"
+      "sidebar main main main"
+      "sidebar main main main"
+      "sidebar footer footer footer";
+    font-size: 1em;
+    color: #000;
+}
+
+/* Este es el main container */
+
+main {
+    background: #F5F5F5;
+    grid-area: main;
+}
+
+main h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+  
+/* Este es el sidebar */
 
 .sidebar {
-    position: fixed;
-    top: 70px;
-    left: 10px;
-    background: #4c2882;
-    width: 225px;
-    height: calc(100% - 80px);
-    border-bottom-left-radius: 20px;
+    background: #fff;
+    color: #000;
+    grid-area: sidebar;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
 }
 
 .sidebar ul li a {
     display: block;
     padding: 16px;
-    color: #e6e6fa;
-    position: relative;
     margin-bottom: 1px;
+    text-decoration: none;
+    color: #6a5acd;
 }
 
-.icon {
-    display: inline-block;
-}
-
-.title {
-    display: inline-block;
-}
-
-.sidebar ul li a:hover,
-.active {
-    background-color: #6c39b9;
+.sidebar ul li:hover {
+    background-color: #6a5acd;
     color: #fff;
     transition: 0.5s;
 }
+  
+/* Este es el footer */
 
-.sidebar ul li a:hover:before,
-.active:before {
-    display: block;
+footer {
+    background: #fff;
+    grid-area: footer;
+    border-top: 1px solid #e0e0e0;
 }
 
-#child {
-    border-end-start-radius: 20px;
+/* Estos son los media querys del GRID */
+  
+@media only screen and (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.4fr 1.5fr 2.2fr 1.2fr 1.2fr 1.2fr 0.8fr;
+      grid-template-areas:
+        "nav"
+        "sidebar"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main";
+        grid-gap: 0rem;
+    }
 }
 
-/* --------------------------------------------------Main Container----------------------------------------------------------- */
+/* Estos son los media querys de la nav*/
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 20px;
+    }
+    footer {
+        display: none;
+    }
+    .sidebar {
+        background-color: #212121;
+    }
+    .sidebar ul li a {
+        color: #fff;
+    }
+    .header {
+        height: 60px;
+    }
+    .logo {
+        font-size: 1rem;
+        padding: 0 20px;
+        line-height: 60px;
+    }
+    .nav-menu {
+        flex-direction: column ;
+        align-items: center;
+        margin: 0; /*Pilas*/
+        background-color: #3a3838;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 100%;
+        padding: 20px 0;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        left: 100%;
+        transition: left 0.5s;
+    }
+    .nav-menu-item {
+        line-height: 70px;
+    }
+    .nav-menu-link:hover {
+        background: none;
+        color: #6a5acd;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .nav-menu-visible {
+        left: 0;
+    }    
+}
+
+/* Estos son los estilos de las tablas */
 
 .table {
-    border-radius: 10px;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid #ccc;
     border-collapse: collapse;
-    margin: auto;
+    padding: 0;
+    table-layout: fixed;
 }
 
-.table th {
-    font-size: 14px;
+.table caption {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 8px 0px;
+}
+
+.table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    font-size: 16px;
     padding: 8px;
     text-align: center;
-    background-color: #6c39b9;
+}
+
+.table thead th{ 
+    background-color: #6a5acd;
     color: #fff;
 }
 
-.table td {
-    font-size: 14px;
-    padding: 10px;
-    border: 1px solid #ffe4c4;
-    text-align: center;
-}
+/* Estos son las media querys de la tabla */
 
-.deletebtn {
-    background-color: #dc143c;
-    color: #fff;
-    padding: 5px;
-    border: none;
-    cursor: pointer;
-}
+@media screen and (max-width: 1100px) {
+    footer {
+        display: none;
+    }
 
-.deletebtn:hover {
-    background-color: #df4b68;
+    .table {
+        border: 0px;
+    }
+    .table caption {
+        font-size: 22px;
+    }
+    .table thead {
+        display: none;
+    }
+    .table tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .table  td:last-child {
+        border-bottom: 0px;
+    }
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        float: left;
+    }
 }
-
-.modifybtn {
-    background-color: #1e90ff;
-    color: #fff;
-    padding: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.modifybtn:hover {
-    background-color: #47a1fc;;
-}
-
-
-.maincontainer {
-    width: calc(100% - 225px);
-    margin-top: 60px;
-    margin-left: 225px;
-    padding: 15px;
-}
-
-.maincontainer .item {
-    background-color: #fff;
-    margin-bottom: 10px;
-    padding: 15px;
-    font-size: 15px;
-    line-height: 22px;
-}
-
-.main.collapse .sidebar {
-    width: 70px;
-}
-  
-.main.collapse .sidebar ul li a {
-    text-align: center; 
-}
-  
-.main.collapse .sidebar ul li a span.icon {
-    margin: 0;
-}
-  
-.main.collapse .sidebar ul li a span.title {
-    display: none;
-}
-  
-.main.collapse .maincontainer {
-    width: (100% - 70px);
-    margin-left: 70px;
-}
-
-  
