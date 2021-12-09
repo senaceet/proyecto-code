@@ -256,6 +256,14 @@ footer {
     color: #fff;
 }
 
+.table i:active {
+    color: #6a5acd;
+}
+
+.table i {
+    color: #6a5acd;
+}
+
 /* Estos son las media querys de la tabla */
 
 @media screen and (max-width: 1100px) {
