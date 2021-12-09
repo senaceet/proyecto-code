@@ -113,7 +113,7 @@ def createusuarios(request):
         formulario = UsuariosForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Usuario creado correctamente')
+            messages.success(request, 'Usuario registrado correctamente')
             return redirect('dashusuarios')
         
     return render(request, 'createusuarios.html', {
@@ -126,7 +126,7 @@ def createproductos(request):
         formulario = ProductosForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Producto creado correctamente')
+            messages.success(request, 'Producto registrado correctamente')
             return redirect('dashproductos') 
         
     return render(request, 'createproductos.html', {
@@ -139,7 +139,7 @@ def createclientes(request):
         formulario = ClientesForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Cliente creado correctamente')
+            messages.success(request, 'Cliente registrado correctamente')
             return redirect('dashclientes')
         
     return render(request, 'createclientes.html', {
@@ -152,7 +152,7 @@ def createproveedores(request):
         formulario = ProveedoresForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Proveedor creado correctamente')
+            messages.success(request, 'Proveedor registrado correctamente')
             return redirect('dashproveedores')
         
     return render(request, 'createproveedores.html', {
@@ -165,7 +165,7 @@ def createroles(request):
         formulario = RolesForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Rol creado correctamente')
+            messages.success(request, 'Rol registrado correctamente')
             return redirect('dashroles')
         
     return render(request, 'createroles.html', {
@@ -178,7 +178,7 @@ def createtipodoc(request):
         formulario = TipoDocumentoForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Tipo de documento creado correctamente')
+            messages.success(request, 'Tipo de documento registrado correctamente')
             return redirect('dashtipodoc')
         
     return render(request, 'createtipodoc.html', {
@@ -191,7 +191,7 @@ def createcategorias(request):
         formulario = CategoriasForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Categoría creada correctamente')
+            messages.success(request, 'Categoría registrada correctamente')
             return redirect('dashcategoria')
         
     return render(request, 'createcategorias.html', {
@@ -204,7 +204,7 @@ def createventas(request):
         formulario = VentasForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Venta creada correctamente')
+            messages.success(request, 'Venta registrada correctamente')
             return redirect('dashventas')
         
     return render(request, 'createventas.html', {
@@ -217,7 +217,7 @@ def createmateriales(request):
         formulario = MaterialesForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Material creado correctamente')
+            messages.success(request, 'Material registrado correctamente')
             return redirect('dashmateriales')
         
     return render(request, 'createmateriales.html', {
@@ -230,7 +230,7 @@ def createestados(request):
         formulario = EstadosForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Estado creado correctamente')
+            messages.success(request, 'Estado registrado correctamente')
             return redirect('dashestado')
     return render(request, 'createestados.html', {
         'cestados' : cestados
@@ -242,7 +242,7 @@ def createmarcas(request):
         formulario = MarcasForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Marca creada correctamente')
+            messages.success(request, 'Marca registrada correctamente')
             return redirect('dashmarcas')
         
     return render(request, 'createmarcas.html', {
@@ -255,7 +255,7 @@ def createpaisorigen(request):
         formulario = PaisesForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'País creado correctamente')
+            messages.success(request, 'País registrado correctamente')
             return redirect('dashpais')
         
     return render(request, 'createpaises.html', {
@@ -297,6 +297,7 @@ def eliminartipodoc(request, id):
 def eliminarcategorias(request, id):
     categorias = get_object_or_404(Categorias, id=id)
     categorias.delete()
+    messages.success(request, 'Categoría eliminada correctamente')
     return redirect(to='dashcategoria')
 
 def eliminarventas(request, id):
@@ -335,7 +336,7 @@ def updatecategorias(request, id):
         formulario = CategoriasForm(data=request.POST, instance=categorias)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Categoría editada correctamente')
+            messages.success(request, 'Categoría modificada correctamente')
             return redirect(to='dashcategoria')
         data['formcategorias'] = formulario	
     return render(request, 'updatecategorias.html', data)
@@ -349,7 +350,7 @@ def updateclientes(request, id):
         formulario = ClientesForm(data=request.POST, instance=clientes)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Cliente editado correctamente')
+            messages.success(request, 'Cliente modificado correctamente')
             return redirect(to='dashclientes')
         data['formclientes'] = formulario	
     return render(request, 'updateclientes.html', data)
@@ -363,7 +364,7 @@ def updateestados(request, id):
         formulario = EstadosForm(data=request.POST, instance=estados)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Estado editado correctamente')
+            messages.success(request, 'Estado modificado correctamente')
             return redirect(to='dashestado')
         data['formestado'] = formulario	
     return render(request, 'updateestado.html', data)
@@ -377,7 +378,7 @@ def updatemarcas(request, id):
         formulario = MarcasForm(data=request.POST, instance=marcas)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Marca editada correctamente')
+            messages.success(request, 'Marca modificado correctamente')
             return redirect(to='dashmarcas')
         data['formmarca'] = formulario	
     return render(request, 'updatemarcas.html', data)
@@ -391,7 +392,7 @@ def updatemateriales(request, id):
         formulario = MaterialesForm(data=request.POST, instance=materiales)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Material editado correctamente')
+            messages.success(request, 'Material modificado correctamente')
             return redirect(to='dashmateriales')
         data['formmateriales'] = formulario	
     return render(request, 'updatemateriales.html', data)
@@ -405,7 +406,7 @@ def updatepaisorigen(request, id):
         formulario = PaisesForm(data=request.POST, instance=paisorigen)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'País de Origen editado correctamente')
+            messages.success(request, 'País de Origen modificado correctamente')
             return redirect(to='dashpais')
         data['formpaisorigen'] = formulario	
     return render(request, 'updatepaisorigen.html', data)
@@ -419,7 +420,7 @@ def updateproductos(request, id):
         formulario = ProductosForm(data=request.POST, instance=productos)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Producto editado correctamente')
+            messages.success(request, 'Producto modificado correctamente')
             return redirect(to='dashproductos')
         data['formproductos'] = formulario	
     return render(request, 'updateproductos.html', data)
@@ -433,7 +434,7 @@ def updateproveedores(request, id):
         formulario = ProveedoresForm(data=request.POST, instance=proveedores)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Proveedor editado correctamente')
+            messages.success(request, 'Proveedor modificado correctamente')
             return redirect(to='dashproveedores')
         data['formproveedores'] = formulario	
     return render(request, 'updateproveedores.html', data)
@@ -447,7 +448,7 @@ def updateroles(request, id):
         formulario = RolesForm(data=request.POST, instance=roles)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Rol editado correctamente')
+            messages.success(request, 'Rol modificado correctamente')
             return redirect(to='dashroles')
         data['formroles'] = formulario	
     return render(request, 'updateroles.html', data)
@@ -461,7 +462,7 @@ def updatetipodoc(request, id):
         formulario = TipoDocumentoForm(data=request.POST, instance=tipodoc)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Tipo de Documento editado correctamente')
+            messages.success(request, 'Tipo de Documento modificado correctamente')
             return redirect(to='dashtipodoc')
         data['formtipodoc'] = formulario	
     return render(request, 'updatetipodoc.html', data)
@@ -475,7 +476,7 @@ def updateusuarios(request, id):
         formulario = UsuariosForm(data=request.POST, instance=usuarios)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Usuario editado correctamente')
+            messages.success(request, 'Usuario modificado correctamente')
             return redirect(to='dashusuarios')
         data['formusuarios'] = formulario	
     return render(request, 'updateusuarios.html', data)
@@ -489,7 +490,7 @@ def updateventas(request, id):
         formulario = VentasForm(data=request.POST, instance=ventas)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, 'Venta editado correctamente')
+            messages.success(request, 'Venta modificado correctamente')
             return redirect(to='dashventas')
         data['formventas'] = formulario	
     return render(request, 'updateventas.html', data)
@@ -502,7 +503,6 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-    
     return render(request, 'login.html', {
         # Context
 } )
@@ -523,5 +523,5 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    messages.success(request, 'Sesión finalizada')
+    messages.success(request, 'Sesión finalizada. Hasta pronto!')
     return redirect('login')

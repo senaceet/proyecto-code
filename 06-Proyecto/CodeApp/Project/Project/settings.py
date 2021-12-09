@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+from django.contrib import messages
 import InventoryApp.db as db
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -16,6 +18,8 @@ SECRET_KEY = 'django-insecure-wp(o2qe(x(hc5_aetfca=mg=80j3lqo)+hw)jt%f)s@kq61m*)
 DEBUG = True
 
 ALLOWED_HOSTS = ['codeprojectapp.azurewebsites.net', '127.0.0.1']
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 # Application definition
 
