@@ -48,4 +48,9 @@ urlpatterns = [
     path('eliminarmarcas/<id>', views.eliminarmarcas, name='eliminarmarcas'),
     path('eliminarpaisorigen/<id>', views.eliminarpaisorigen, name='eliminarpaisorigen'),
     # Forms update
+    path('updatecategorias/<id>/', views.updatecategorias, name='updatecategorias'),
+    path('updateclientes/<id>/', views.updateclientes, name='updateclientes'),
+    path('updateestados/<id>/', views.updateestados, name='updateestados'),
+    path('updatemarcas/<id>/', views.updatemarcas, name='updatemarcas'),
+    path('updatemateriales/<id>/', views.updatemateriales, name='updatemateriales'),
 ]

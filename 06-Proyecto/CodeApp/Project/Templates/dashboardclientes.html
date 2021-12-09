@@ -106,7 +106,7 @@
                         <td data-label="Teléfono del cliente">{{clientes.TelefonoCliente}}</td>
                         <td data-label="Productos frecuentes">{{clientes.ProductosFrecuentes}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updateclientes' clientes.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarclientes' clientes.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>

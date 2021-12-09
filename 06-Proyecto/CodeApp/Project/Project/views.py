@@ -326,6 +326,75 @@ def eliminarpaisorigen(request, id):
 
 # Funciones de editar
 
+def updatecategorias(request, id):
+    categorias = get_object_or_404(Categorias, id=id)
+    data =  {
+        'formcategorias': CategoriasForm(instance=categorias)
+    }
+    if request.method == 'POST':
+        formulario = CategoriasForm(data=request.POST, instance=categorias)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Categoría editada correctamente')
+            return redirect(to='dashcategoria')
+        data['formcategorias'] = formulario	
+    return render(request, 'updatecategorias.html', data)
+
+def updateclientes(request, id):
+    clientes = get_object_or_404(Clientes, id=id)
+    data =  {
+        'formclientes': ClientesForm(instance=clientes)
+    }
+    if request.method == 'POST':
+        formulario = ClientesForm(data=request.POST, instance=clientes)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Cliente editado correctamente')
+            return redirect(to='dashclientes')
+        data['formclientes'] = formulario	
+    return render(request, 'updateclientes.html', data)
+
+def updateestados(request, id):
+    estados = get_object_or_404(Estado, id=id)
+    data =  {
+        'formestado': EstadosForm(instance=estados)
+    }
+    if request.method == 'POST':
+        formulario = EstadosForm(data=request.POST, instance=estados)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Estado editado correctamente')
+            return redirect(to='dashestado')
+        data['formestado'] = formulario	
+    return render(request, 'updateestado.html', data)
+
+def updatemarcas(request, id):
+    marcas = get_object_or_404(Marcas, id=id)
+    data =  {
+        'formmarca': MarcasForm(instance=marcas)
+    }
+    if request.method == 'POST':
+        formulario = MarcasForm(data=request.POST, instance=marcas)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Marca editada correctamente')
+            return redirect(to='dashmarcas')
+        data['formmarca'] = formulario	
+    return render(request, 'updatemarcas.html', data)
+
+def updatemateriales(request, id):
+    materiales = get_object_or_404(Materiales, id=id)
+    data =  {
+        'formmateriales': MaterialesForm(instance=materiales)
+    }
+    if request.method == 'POST':
+        formulario = MaterialesForm(data=request.POST, instance=materiales)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Material editado correctamente')
+            return redirect(to='dashmateriales')
+        data['formmateriales'] = formulario	
+    return render(request, 'updatemateriales.html', data)
 
 def index(request):
     return render(request, 'index.html', {

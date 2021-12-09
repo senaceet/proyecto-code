@@ -96,7 +96,7 @@
                     <tr>
                         <td data-label="Rol">{{estado.DescripcionEstado}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updateestados' estado.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarestados' estado.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>

@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'CSS/stylesform.css' %}">
     <link rel="shortcut icon" href="https://i.imgur.com/xptcycV.png" type="image/x-icon">
-    <title>Modificar | Usuarios</title>
+    <title>Modificar | Estado</title>
 </head>
 <body>
     <form action="" method="post">
         {% csrf_token %}
         <div class="main">
             <div class="title">
-                Modificar Usuarios
+                Modificar Estado
             </div>    
             <div class="forma">
                 <div class="inputs">
-                {{ cusuarios }}
+                    {{ formestado }}
             </div>
             </div>
             <div class="buttons">

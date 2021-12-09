@@ -96,7 +96,7 @@
                     <tr>
                         <td data-label="Descripción de la categoría">{{categorias.DescripcionCategoria}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updatecategorias' categorias.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarcategorias' categorias.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
