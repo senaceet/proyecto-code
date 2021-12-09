@@ -11,6 +11,43 @@
     <title>Dashboard | Usuarios</title>
 </head>
 <body>
+    {% block js %}
+        <script>
+            function eliminarUsuario(id){
+                Swal.fire({
+                title: '¿Estás seguro de querer eliminar este usuario?',
+                text: "Si eliminas al usuario, después no podrás restaurarlo.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, eliminar.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "eliminarusuarios/"+id+""
+                }
+            })
+        }
+        function cerrarSesion(){
+                Swal.fire({
+                title: '¿Estás seguro de querer cerrar sesión?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, cerrar sesión.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "logout"
+                }
+            })
+        }
+        </script>
+    {% endblock %}
     <div class="container">
         <!---------------------------------------------Navbar------------------------------------------------------------>
         <header class="header">
@@ -24,7 +61,7 @@
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Buscar</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Mi perfil</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Configuración</a></li>
-                    <li class="nav-menu-item"><a href="{% url 'logout' %}" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
+                    <li class="nav-menu-item"><a href="#" onclick="cerrarSesion()" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </header>
@@ -115,7 +152,7 @@
                         <td data-label="Tipo de documento">{{usuarios.TipoDocumento}}</td>
                         <td data-label="Gestión">
                             <a href="{% url 'updateusuarios' usuarios.id %}"><i class="fas fa-edit"></i></a>
-                            <a href="{% url 'eliminarusuarios' usuarios.id %}"><i class="fas fa-trash-alt"></i></a>
+                            <a href="#" onclick="eliminarUsuario({{ usuarios.id }})"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

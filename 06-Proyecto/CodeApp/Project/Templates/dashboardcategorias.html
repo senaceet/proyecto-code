@@ -15,8 +15,8 @@
         <script>
             function eliminarCategoria(id){
                 Swal.fire({
-                title: '¿Estás seguro de querer eliminar este ítem?',
-                text: "Si eliminas el ítem, después no podrás restaurarlo.",
+                title: '¿Estás seguro de querer eliminar esta categoría?',
+                text: "Si eliminas la categoría, después no podrás restaurarla.",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -27,6 +27,22 @@
             .then(function(result) {
                 if (result.isConfirmed) {
                     window.location.href = "eliminarcategorias/"+id+""
+                }
+            })
+        }
+        function cerrarSesion(){
+                Swal.fire({
+                title: '¿Estás seguro de querer cerrar sesión?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, cerrar sesión.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "logout"
                 }
             })
         }
@@ -45,7 +61,7 @@
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Buscar</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Mi perfil</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Configuración</a></li>
-                    <li class="nav-menu-item"><a href="{% url 'logout' %}" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
+                    <li class="nav-menu-item"><a href="#" onclick="cerrarSesion()" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </header>
