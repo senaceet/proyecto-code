@@ -96,7 +96,7 @@
                     <tr>
                         <td data-label="Rol">{{paisorigen.DescripcionPais}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updatepaisorigen' paisorigen.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarpaisorigen' paisorigen.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>

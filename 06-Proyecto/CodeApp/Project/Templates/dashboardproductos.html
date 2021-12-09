@@ -120,7 +120,7 @@
                         <td data-label="Proveedor">{{productos.Proveedores}}</td>
                         <td data-label="Estado">{{productos.Estado}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updateproductos' productos.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarproductos' productos.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>

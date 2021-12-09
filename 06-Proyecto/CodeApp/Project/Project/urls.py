@@ -53,4 +53,7 @@ urlpatterns = [
     path('updateestados/<id>/', views.updateestados, name='updateestados'),
     path('updatemarcas/<id>/', views.updatemarcas, name='updatemarcas'),
     path('updatemateriales/<id>/', views.updatemateriales, name='updatemateriales'),
+    path('updatepaisorigen/<id>/', views.updatepaisorigen, name='updatepaisorigen'),
+    path('updateproductos/<id>/', views.updateproductos, name='updateproductos'),
+    path('updateproveedores/<id>/', views.updateproveedores, name='updateproveedores'),
 ]

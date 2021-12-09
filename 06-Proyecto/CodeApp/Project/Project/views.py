@@ -396,6 +396,48 @@ def updatemateriales(request, id):
         data['formmateriales'] = formulario	
     return render(request, 'updatemateriales.html', data)
 
+def updatepaisorigen(request, id):
+    paisorigen = get_object_or_404(PaisOrigen, id=id)
+    data =  {
+        'formpaisorigen': PaisesForm(instance=paisorigen)
+    }
+    if request.method == 'POST':
+        formulario = PaisesForm(data=request.POST, instance=paisorigen)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'País de Origen editado correctamente')
+            return redirect(to='dashpais')
+        data['formpaisorigen'] = formulario	
+    return render(request, 'updatepaisorigen.html', data)
+
+def updateproductos(request, id):
+    productos = get_object_or_404(Productos, id=id)
+    data =  {
+        'formproductos': ProductosForm(instance=productos)
+    }
+    if request.method == 'POST':
+        formulario = ProductosForm(data=request.POST, instance=productos)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Producto editado correctamente')
+            return redirect(to='dashproductos')
+        data['formproductos'] = formulario	
+    return render(request, 'updateproductos.html', data)
+
+def updateproveedores(request, id):
+    proveedores = get_object_or_404(Proveedores, id=id)
+    data =  {
+        'formproveedores': ProveedoresForm(instance=proveedores)
+    }
+    if request.method == 'POST':
+        formulario = ProveedoresForm(data=request.POST, instance=proveedores)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Proveedor editado correctamente')
+            return redirect(to='dashproveedores')
+        data['formproveedores'] = formulario	
+    return render(request, 'updateproveedores.html', data)
+
 def index(request):
     return render(request, 'index.html', {
 } )

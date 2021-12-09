@@ -104,7 +104,7 @@
                         <td data-label="Email del proveedor">{{proveedores.EmailProveedor}}</td>
                         <td data-label="Estado">{{proveedores.Estado}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updateproveedores' proveedores.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarproveedores' proveedores.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
