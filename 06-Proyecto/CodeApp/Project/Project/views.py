@@ -267,31 +267,37 @@ def createpaisorigen(request):
 def eliminarusuarios(request, id):
     usuarios = get_object_or_404(Usuarios, id=id)
     usuarios.delete()
+    messages.success(request, 'Usuario eliminado correctamente')
     return redirect(to='dashusuarios')
     
 def eliminarproductos(request, id):
     productos = get_object_or_404(Productos, id=id)
     productos.delete()
+    messages.success(request, 'Producto eliminado correctamente')
     return redirect(to='dashproductos')
 
 def eliminarclientes(request, id):
     clientes = get_object_or_404(Clientes, id=id)
     clientes.delete()
+    messages.success(request, 'Cliente eliminado correctamente')
     return redirect(to='dashclientes')
 
 def eliminarproveedores(request, id):
     proveedores = get_object_or_404(Proveedores, id=id)
     proveedores.delete()
+    messages.success(request, 'Proveedor eliminado correctamente')
     return redirect(to='dashproveedores')
 
 def eliminarroles(request, id):
     roles = get_object_or_404(Roles, id=id)
     roles.delete()
+    messages.success(request, 'Rol eliminado correctamente')
     return redirect(to='dashroles')
 
 def eliminartipodoc(request, id):
     tipodoc = get_object_or_404(TipoDocumento, id=id)
     tipodoc.delete()
+    messages.success(request, 'Tipo de documento eliminado correctamente')
     return redirect(to='dashtipodoc')
 
 def eliminarcategorias(request, id):
@@ -303,11 +309,13 @@ def eliminarcategorias(request, id):
 def eliminarventas(request, id):
     ventas = get_object_or_404(Ventas, id=id)
     ventas.delete()
+    messages.success(request, 'Venta eliminada correctamente')
     return redirect(to='dashventas')
 
 def eliminarmateriales(request, id):
     materiales = get_object_or_404(Materiales, id=id)
     materiales.delete()
+    messages.success(request, 'Material eliminado correctamente')
     return redirect(to='dashmateriales')
 
 def eliminarestados(request, id):
@@ -319,11 +327,13 @@ def eliminarestados(request, id):
 def eliminarmarcas(request, id):
     marcas = get_object_or_404(Marcas, id=id)
     marcas.delete()
+    messages.success(request, 'Marca eliminada correctamente')
     return redirect(to='dashmarcas')
 
 def eliminarpaisorigen(request, id):
     paises = get_object_or_404(PaisOrigen, id=id)
     paises.delete()
+    messages.success(request, 'País de origen eliminado correctamente')
     return redirect(to='dashpais')
 
 # Funciones de editar
