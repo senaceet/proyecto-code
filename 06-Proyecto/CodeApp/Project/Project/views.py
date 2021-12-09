@@ -313,6 +313,7 @@ def eliminarmateriales(request, id):
 def eliminarestados(request, id):
     estados = get_object_or_404(Estado, id=id)
     estados.delete()
+    messages.success(request, 'Estado eliminado correctamente')
     return redirect(to='dashestado')
 
 def eliminarmarcas(request, id):
@@ -514,7 +515,7 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         if user:
             login(request)
-            messages.success(request, 'Bienvenido, {}'.format(user.username))
+            messages.success(request, 'Bienvenid@, {}'.format(user.username))
             return redirect('dashventas')
         else: 
             messages.error(request, 'Usuario o contraseña incorrecta')
