@@ -24,7 +24,7 @@
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Buscar</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Mi perfil</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Configuración</a></li>
-                    <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
+                    <li class="nav-menu-item"><a href="{% url 'logout' %}" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </header>
@@ -87,15 +87,15 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre del producto</th>
-                        <th>Descripción del producto</th>
+                        <th>Producto</th>
+                        <th>Descripción</th>
                         <th>Precio compra</th>
                         <th>Precio venta</th>
-                        <th>Cantidad de productos</th>
+                        <th>Cantidad (Docenas)</th>
                         <th>Fecha de ingreso</th>
                         <th>Talla</th>
                         <th>Material</th>
-                        <th>Categoría del producto</th>
+                        <th>Categoría</th>
                         <th>País de origen</th>
                         <th>Marca</th>
                         <th>Proveedor</th>
@@ -115,7 +115,7 @@
                         <td data-label="Talla">{{productos.Talla}}</td>
                         <td data-label="Material">{{productos.Materiales}}</td>
                         <td data-label="Categoría del producto">{{productos.Categorias}}</td>
-                        <td data-label="País de origen">{{productos.PaiseOrigen}}</td>
+                        <td data-label="País de origen">{{productos.PaisOrigen}}</td>
                         <td data-label="Marca">{{productos.Marcas}}</td>
                         <td data-label="Proveedor">{{productos.Proveedores}}</td>
                         <td data-label="Estado">{{productos.Estado}}</td>

@@ -110,6 +110,7 @@ nav {
 main {
     background: #F5F5F5;
     grid-area: main;
+    display: table;
 }
 
 main h1 {
@@ -225,19 +226,13 @@ footer {
 /* Estos son los estilos de las tablas */
 
 .table {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 20px;
     border: 1px solid #ccc;
     border-collapse: collapse;
     padding: 0;
-    table-layout: fixed;
-}
 
-.table caption {
-    font-size: 28px;
-    font-weight: bold;
-    margin: 8px 0px;
 }
 
 .table tr {
@@ -246,8 +241,13 @@ footer {
 }
 
 .table th, .table td {
-    font-size: 16px;
-    padding: 8px;
+    font-size: 1rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.table td {
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -262,7 +262,6 @@ footer {
     footer {
         display: none;
     }
-
     .table {
         border: 0px;
     }
@@ -292,5 +291,10 @@ footer {
         content: attr(data-label);
         font-weight: bold;
         float: left;
+    }
+    .table i {
+        color: #6a5acd;
+        font-size: 22px;
+        margin-right: 15px;
     }
 }

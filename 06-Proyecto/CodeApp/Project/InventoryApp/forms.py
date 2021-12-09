@@ -23,7 +23,7 @@ class ProductosForm(forms.ModelForm):
     DescripcionProducto = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Descripción del Producto")
     PrecioCompra = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio del Producto")
     PrecioVenta = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio de venta del Producto")
-    CantidadProductos = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Cantidad de Productos")
+    CantidadProductos = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Cantidad de Productos (Docenas)")
     FechaIngreso = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Fecha de Ingreso")
     Talla = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Talla del Producto")
     Estado = forms.ModelChoiceField(queryset=Estado.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Estado")

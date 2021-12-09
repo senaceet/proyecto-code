@@ -24,7 +24,7 @@
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Buscar</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Mi perfil</a></li>
                     <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Configuración</a></li>
-                    <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
+                    <li class="nav-menu-item"><a href="{% url 'logout' %}" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </header>
@@ -87,16 +87,16 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre del usuario</th>
-                        <th>Apellido del usuario</th>
-                        <th>Teléfono del usuario</th>
-                        <th>Email del usuario</th>
-                        <th>Número de documento</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Núm. Documento</th>
                         <th>Usuario</th>
                         <th>Contraseña</th>
-                        <th>Tipo de documento</th>
-                        <th>Rol</th>
                         <th>Estado</th>
+                        <th>Rol</th>
+                        <th>Tipo de documento</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -107,12 +107,12 @@
                         <td data-label="Apellido del usuario">{{usuarios.ApellidoUsuario}}</td>
                         <td data-label="Teléfono del usuario">{{usuarios.TelefonoUsuario}}</td>
                         <td data-label="Email del usuario">{{usuarios.EmailUsuario}}</td>
-                        <td data-label="Número de documento">{{usuarios.NumeroDocumento}}</td>
+                        <td data-label="Número de documento del usuario">{{usuarios.NumeroDocumento}}</td>
                         <td data-label="Usuario">{{usuarios.Usuario}}</td>
                         <td data-label="Contraseña">{{usuarios.Contraseña}}</td>
-                        <td data-label="Tipo de documento">{{usuarios.TipoDocumento}}</td>
-                        <td data-label="Rol">{{usuarios.Roles}}</td>
                         <td data-label="Estado">{{usuarios.Estado}}</td>
+                        <td data-label="Rol">{{usuarios.Roles}}</td>
+                        <td data-label="Tipo de documento">{{usuarios.TipoDocumento}}</td>
                         <td data-label="Gestión">
                             <a href=""><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarusuarios' usuarios.id %}"><i class="fas fa-trash-alt"></i></a>

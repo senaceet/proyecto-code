@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('login', views.login_view, name='login'),
+    path('logout', views.logout_view, name='logout'),
     path('dashboardproductos', views.dashboardproductos, name='dashproductos'), # Registro creado
     path('dashboardventas', views.dashboardventas, name='dashventas'), # Registro creado
     path('dashboardcategorias', views.dashboardcategorias, name='dashcategoria'), # Registro creado
