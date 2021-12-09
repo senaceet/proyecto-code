@@ -78,7 +78,7 @@ class CategoriasForm(forms.ModelForm):
 class VentasForm(forms.ModelForm):
     Fecha = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Fecha de la Venta")
     DescripcionVenta = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Descripción de la Venta")
-    Cantidad = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Cantidad de Productos")
+    Cantidad = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Cantidad de Productos (Docenas)")
     PrecioFinal = forms.DecimalField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio Final")
     Clientes = forms.ModelChoiceField(queryset=Clientes.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Cliente")
     # Productos = forms.ModelChoiceField(queryset=Productos.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Producto")

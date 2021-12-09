@@ -438,6 +438,62 @@ def updateproveedores(request, id):
         data['formproveedores'] = formulario	
     return render(request, 'updateproveedores.html', data)
 
+def updateroles(request, id):
+    roles = get_object_or_404(Roles, id=id)
+    data =  {
+        'formroles': RolesForm(instance=roles)
+    }
+    if request.method == 'POST':
+        formulario = RolesForm(data=request.POST, instance=roles)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Rol editado correctamente')
+            return redirect(to='dashroles')
+        data['formroles'] = formulario	
+    return render(request, 'updateroles.html', data)
+
+def updatetipodoc(request, id):
+    tipodoc = get_object_or_404(TipoDocumento, id=id)
+    data =  {
+        'formtipodoc': TipoDocumentoForm(instance=tipodoc)
+    }
+    if request.method == 'POST':
+        formulario = TipoDocumentoForm(data=request.POST, instance=tipodoc)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Tipo de Documento editado correctamente')
+            return redirect(to='dashtipodoc')
+        data['formtipodoc'] = formulario	
+    return render(request, 'updatetipodoc.html', data)
+
+def updateusuarios(request, id):
+    usuarios = get_object_or_404(Usuarios, id=id)
+    data =  {
+        'formusuarios': UsuariosForm(instance=usuarios)
+    }
+    if request.method == 'POST':
+        formulario = UsuariosForm(data=request.POST, instance=usuarios)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Usuario editado correctamente')
+            return redirect(to='dashusuarios')
+        data['formusuarios'] = formulario	
+    return render(request, 'updateusuarios.html', data)
+
+def updateventas(request, id):
+    ventas = get_object_or_404(Ventas, id=id)
+    data =  {
+        'formventas': VentasForm(instance=ventas)
+    }
+    if request.method == 'POST':
+        formulario = VentasForm(data=request.POST, instance=ventas)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Venta editado correctamente')
+            return redirect(to='dashventas')
+        data['formventas'] = formulario	
+    return render(request, 'updateventas.html', data)
+
 def index(request):
     return render(request, 'index.html', {
 } )

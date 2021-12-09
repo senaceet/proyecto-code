@@ -56,4 +56,8 @@ urlpatterns = [
     path('updatepaisorigen/<id>/', views.updatepaisorigen, name='updatepaisorigen'),
     path('updateproductos/<id>/', views.updateproductos, name='updateproductos'),
     path('updateproveedores/<id>/', views.updateproveedores, name='updateproveedores'),
+    path('updateroles/<id>/', views.updateroles, name='updateroles'),
+    path('updatetipodoc/<id>/', views.updatetipodoc, name='updatetipodoc'),
+    path('updateusuarios/<id>/', views.updateusuarios, name='updateusuarios'),
+    path('updateventas/<id>/', views.updateventas, name='updateventas'),
 ]

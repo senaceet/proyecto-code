@@ -89,7 +89,7 @@
                     <tr>
                         <th>Fecha</th>
                         <th>Descripción de la venta</th>
-                        <th>Cantidad</th>
+                        <th>Cantidad (Docenas)</th>
                         <th>Precio final</th>
                         <th>Cliente</th>
                         <th>Producto</th>
@@ -101,12 +101,12 @@
                     <tr>
                         <td data-label="Fecha">{{ventas.Fecha}}</td>
                         <td data-label="Descripción de la venta">{{ventas.DescripcionVenta}}</td>
-                        <td data-label="Cantidad">{{ventas.Cantidad}}</td>
+                        <td data-label="Cantidad (Docenas)">{{ventas.Cantidad}}</td>
                         <td data-label="Precio final">{{ventas.PrecioFinal}}</td>
                         <td data-label="Cliente">{{ventas.Clientes}}</td>
                         <td data-label="Producto">{{ventas.Productos}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updateventas' ventas.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarventas' ventas.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>

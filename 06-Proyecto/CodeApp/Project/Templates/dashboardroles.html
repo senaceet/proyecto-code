@@ -96,7 +96,7 @@
                     <tr>
                         <td data-label="Rol">{{roles.DescripcionRol}}</td>
                         <td data-label="Gestión">
-                            <a href=""><i class="fas fa-edit"></i></a>
+                            <a href="{% url 'updateroles' roles.id %}"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'eliminarroles' roles.id %}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
