@@ -30,7 +30,6 @@
                 }
             })
         }
-
             function cerrarSesion(){
                 Swal.fire({
                 title: '¿Estás seguro de querer cerrar sesión?',
@@ -49,6 +48,7 @@
         }
         </script>
     {% endblock %}
+
     <div class="container">
         <!---------------------------------------------Navbar------------------------------------------------------------>
         <header class="header">
@@ -158,5 +158,16 @@
 
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="https://kit.fontawesome.com/373d4fee53.js" crossorigin="anonymous"></script>
+      {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    text: '{{ m.message }}',
+                    timer: 2000
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
