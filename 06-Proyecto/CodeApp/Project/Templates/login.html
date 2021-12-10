@@ -47,5 +47,16 @@
       </div>
     
     <script src="https://kit.fontawesome.com/f82c10daa4.js" crossorigin="anonymous"></script>
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    text: '{{ m.message }}',
+                    timer: 2000
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
