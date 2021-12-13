@@ -3,6 +3,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }  
 
 body {
@@ -13,7 +14,7 @@ body {
 
 .header {
     background-color: #212121;
-    height: 55px;
+    height: 60px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -194,9 +195,9 @@ footer {
         line-height: 60px;
     }
     .nav-menu {
-        flex-direction: column ;
+        flex-direction: column;
         align-items: center;
-        margin: 0; /*Pilas*/
+        margin-right: 0;
         background-color: #3a3838;
         position: fixed;
         left: 0;
@@ -206,14 +207,16 @@ footer {
         height: calc(100vh - 60px);
         overflow-y: auto;
         left: 100%;
-        transition: left 0.5s;
+        transition: 0.5s;
     }
     .nav-menu-item {
         line-height: 70px;
     }
-    .nav-menu-link:hover {
+    .nav-menu-link:hover,
+    .nav-menu-link_active {
         background: none;
         color: #6a5acd;
+        transition: 0.5s;
     }
     .nav-toggle {
         display: block;
