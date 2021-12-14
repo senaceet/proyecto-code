@@ -17,9 +17,8 @@ from InventoryApp.models import PaisOrigen
 from InventoryApp.models import Proveedores
 from InventoryApp.models import Roles
 from InventoryApp.models import TipoDocumento
-from InventoryApp.models import Usuarios
+from InventoryApp.models import MyUser
 # Forms 
-from InventoryApp.forms import UsuariosForm
 from InventoryApp.forms import ProductosForm
 from InventoryApp.forms import ClientesForm
 from InventoryApp.forms import ProveedoresForm
@@ -31,6 +30,7 @@ from InventoryApp.forms import MaterialesForm
 from InventoryApp.forms import EstadosForm
 from InventoryApp.forms import MarcasForm
 from InventoryApp.forms import PaisesForm
+from InventoryApp.forms import CustomUserCreationForm
 # ORM - Object Relational Mapping.
 
 def dashboardventas(request):
@@ -100,7 +100,7 @@ def dashboardtipodoc(request):
 } )
     
 def dashboardusuarios(request):
-    usuarios = (Usuarios.objects.all()) # Creo variable que traiga todos los datos de la tabla Usuarios.
+    usuarios = (MyUser.objects.all()) # Creo variable que traiga todos los datos de la tabla Usuarios.
     return render(request, 'dashboardusuarios.html', {
         'usuarios' : usuarios
 } )
@@ -108,9 +108,9 @@ def dashboardusuarios(request):
 # Funciones de agregar utilizando Forms.py
 
 def createusuarios(request):
-    cusuarios = UsuariosForm()
+    cusuarios = CustomUserCreationForm()
     if request.method == 'POST':
-        formulario = UsuariosForm(request.POST)
+        formulario = CustomUserCreationForm(request.POST)
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Usuario registrado correctamente')
@@ -265,7 +265,7 @@ def createpaisorigen(request):
 # Funciones de eliminar
 
 def eliminarusuarios(request, id):
-    usuarios = get_object_or_404(Usuarios, id=id)
+    usuarios = get_object_or_404(MyUser, id=id)
     usuarios.delete()
     messages.success(request, 'Usuario eliminado correctamente')
     return redirect(to='dashusuarios')
@@ -479,12 +479,12 @@ def updatetipodoc(request, id):
     return render(request, 'updatetipodoc.html', data)
 
 def updateusuarios(request, id):
-    usuarios = get_object_or_404(Usuarios, id=id)
+    usuarios = get_object_or_404(MyUser, id=id)
     data =  {
-        'formusuarios': UsuariosForm(instance=usuarios)
+        'formusuarios': CustomUserCreationForm(instance=usuarios)
     }
     if request.method == 'POST':
-        formulario = UsuariosForm(data=request.POST, instance=usuarios)
+        formulario = CustomUserCreationForm(data=request.POST, instance=usuarios)
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Usuario modificado correctamente')

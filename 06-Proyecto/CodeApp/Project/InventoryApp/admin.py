@@ -10,8 +10,15 @@ from .models import PaisOrigen
 from .models import TipoDocumento
 from .models import Roles
 from .models import Clientes
-from .models import Usuarios
 from .models import Proveedores
+from .models import MyUser
+from .forms import CustomUserCreationForm
+from django.contrib.auth.admin import UserAdmin
+
+class CustomUserAdmin(UserAdmin):
+    model = MyUser
+    add_form = CustomUserCreationForm
+
 
 admin.site.register(Productos)
 admin.site.register(Ventas)
@@ -23,5 +30,6 @@ admin.site.register(Materiales)
 admin.site.register(PaisOrigen)
 admin.site.register(TipoDocumento)
 admin.site.register(Clientes)
-admin.site.register(Usuarios)
 admin.site.register(Proveedores)
+admin.site.register(MyUser, CustomUserAdmin)
+

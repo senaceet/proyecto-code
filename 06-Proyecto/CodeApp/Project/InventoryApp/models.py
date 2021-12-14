@@ -146,7 +146,7 @@ class Usuarios(models.Model):
         verbose_name_plural = 'Usuarios'
         db_table = 'usuarios'
         ordering = ['id']
-        
+
 class Clientes(models.Model):
     NombreCliente = models.CharField('Nombre del cliente', max_length = 100)
     ApellidoCliente = models.CharField('Apellido del cliente', max_length = 100)
@@ -181,4 +181,28 @@ class Ventas(models.Model):
         verbose_name = 'Venta'
         verbose_name_plural = 'Ventas'
         db_table = 'ventas'
+        ordering = ['id']
+
+class MyUser(AbstractUser):
+    TelefonoUsuario = models.CharField('Teléfono del usuario', max_length = 100)
+    NumeroDocumento = models.CharField('Número de documento del usuario', max_length = 100)
+    TipoDocumento = models.ForeignKey(TipoDocumento, on_delete=models.CASCADE, default='', blank=True, null=True)
+    Estado = models.ForeignKey(Estado, on_delete=models.CASCADE, default='', blank=True, null=True)
+    Roles = models.ForeignKey(Roles, on_delete=models.CASCADE, default='', blank=True, null=True)
+
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'TelefonoUsuario', 'NumeroDocumento']
+
+    class Meta: 
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
+        db_table = 'myuser'
+        ordering = ['id']
+    
+    def __str__(self):
+        return self.first_name
+
+    class Meta:
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
+        db_table = 'myuser'
         ordering = ['id']

@@ -1,22 +1,24 @@
 from django import forms
 from django.contrib.auth.models import AbstractUser
-from .models import TipoDocumento, Usuarios, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Ventas, PaisOrigen
+from .models import TipoDocumento, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Ventas, PaisOrigen, MyUser
+from django.contrib.auth.forms import UserCreationForm
 
-class UsuariosForm(forms.ModelForm): # Formulario para crear usuarios
-    NombreUsuario = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Nombre del Usuario")
-    ApellidoUsuario = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Apellido del Usuario")
-    TelefonoUsuario = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Teléfono del Usuario")
-    EmailUsuario = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Email del Usuario")
-    NumeroDocumento = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Número de Documento")
-    Usuario = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Usuario")
-    Contraseña = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Contraseña")
-    Estado = forms.ModelChoiceField(queryset=Estado.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Estado")
-    Roles = forms.ModelChoiceField(queryset=Roles.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Rol")
-    TipoDocumento = forms.ModelChoiceField(queryset=TipoDocumento.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Tipo de Documento")
+
+class CustomUserCreationForm(UserCreationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Usuario')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Contraseña')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Confirmar contraseña')
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Nombre del usuario')
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Apellido del usuario')
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}), label='Correo electrónico')
+    TelefonoUsuario = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Teléfono')
+    NumeroDocumento = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Número de documento')
+    TipoDocumento = forms.ModelChoiceField(queryset=TipoDocumento.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un tipo de documento")
+    Estado = forms.ModelChoiceField(queryset=Estado.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un estado")
+    Roles = forms.ModelChoiceField(queryset=Roles.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un rol")
     class Meta:
-        model = Usuarios
-        #fields = ['NombreUsuario', 'ApellidoUsuario', 'TelefonoUsuario', 'EmailUsuario', 'NumeroDocumento', 'Usuario', 'Contraseña', 'Estado', 'Roles', 'TipoDocumento']
-        fields = '__all__' # sirve para listarlos todos
+        model = MyUser
+        fields = ('username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'TelefonoUsuario', 'NumeroDocumento', 'TipoDocumento', 'Estado', 'Roles')
 
 class ProductosForm(forms.ModelForm):
     NombreProducto = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Nombre del Producto")

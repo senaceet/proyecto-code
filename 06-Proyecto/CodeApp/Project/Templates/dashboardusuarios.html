@@ -130,7 +130,6 @@
                         <th>Email</th>
                         <th>Núm. Documento</th>
                         <th>Usuario</th>
-                        <th>Contraseña</th>
                         <th>Estado</th>
                         <th>Rol</th>
                         <th>Tipo de documento</th>
@@ -140,13 +139,12 @@
                 <tbody>
                     {% for usuarios in usuarios %}
                     <tr>
-                        <td data-label="Nombre del usuario">{{usuarios.NombreUsuario}}</td>
-                        <td data-label="Apellido del usuario">{{usuarios.ApellidoUsuario}}</td>
+                        <td data-label="Nombre del usuario">{{usuarios.first_name}}</td>
+                        <td data-label="Apellido del usuario">{{usuarios.last_name}}</td>
                         <td data-label="Teléfono del usuario">{{usuarios.TelefonoUsuario}}</td>
-                        <td data-label="Email del usuario">{{usuarios.EmailUsuario}}</td>
+                        <td data-label="Email del usuario">{{usuarios.email}}</td>
                         <td data-label="Número de documento del usuario">{{usuarios.NumeroDocumento}}</td>
-                        <td data-label="Usuario">{{usuarios.Usuario}}</td>
-                        <td data-label="Contraseña">{{usuarios.Contraseña}}</td>
+                        <td data-label="Usuario">{{usuarios.username}}</td>
                         <td data-label="Estado">{{usuarios.Estado}}</td>
                         <td data-label="Rol">{{usuarios.Roles}}</td>
                         <td data-label="Tipo de documento">{{usuarios.TipoDocumento}}</td>
