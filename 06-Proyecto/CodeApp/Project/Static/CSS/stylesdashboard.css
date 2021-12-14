@@ -159,7 +159,11 @@ footer {
     grid-area: footer;
     border-top: 1px solid #e0e0e0;
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 /* Estos son los media querys del GRID */
   
@@ -247,7 +251,7 @@ footer {
     border: 1px solid #ccc;
     border-collapse: collapse;
     padding: 0;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
 }
 
@@ -278,6 +282,10 @@ footer {
 
 .table i {
     color: #6a5acd;
+}
+
+.table i:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 /* Estos son las media querys de la tabla */

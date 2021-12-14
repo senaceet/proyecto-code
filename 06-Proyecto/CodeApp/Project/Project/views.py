@@ -525,7 +525,7 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         if user:
             login(request)
-            messages.success(request, 'Bienvenid@, {}'.format(user.username))
+            messages.success(request, 'Hola, {} 🙋‍♂️'.format(user.username))
             return redirect('dashventas')
         else: 
             messages.error(request, '⚠ Usuario y/o contraseña incorrectos.')
