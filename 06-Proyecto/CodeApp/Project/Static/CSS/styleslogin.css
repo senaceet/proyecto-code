@@ -37,6 +37,20 @@ body {
   border-left: 5px solid #4c2882;
 }
 
+.alert-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #20b2aa;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
 .text {
   text-align: center;
 }
@@ -130,6 +144,10 @@ i {
 @media (max-width: 640px) { /* Media Query para que las waves se escondan y no dañen el responsive */
   body {
     background-color: #eee;
+  }
+
+  .alert-message {
+    height: 60px;
   }
 
   .wave {

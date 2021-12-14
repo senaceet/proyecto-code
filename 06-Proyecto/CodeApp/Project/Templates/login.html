@@ -9,8 +9,12 @@
     <link rel="shortcut icon" href="https://i.imgur.com/xptcycV.png" type="image/x-icon">
     <title>Login | Violetas</title>
 </head>
-
 <body>
+    {% if messages %}
+        {% for m in messages %}
+            <div class="alert-message">{{ m.message }}</div>
+        {% endfor %}
+    {% endif %}
     <form action="" method="post">
         {% csrf_token %}
         <div class="main">

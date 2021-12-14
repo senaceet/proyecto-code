@@ -528,11 +528,11 @@ def login_view(request):
             messages.success(request, 'Bienvenid@, {}'.format(user.username))
             return redirect('dashventas')
         else: 
-            messages.error(request, 'Usuario o contraseña incorrecta')
+            messages.error(request, '⚠ Usuario y/o contraseña incorrectos.')
     return render(request, 'login.html',{
 })
 
 def logout_view(request):
     logout(request)
-    messages.success(request, 'Sesión finalizada. Hasta pronto!')
+    messages.success(request, 'Sesión finalizada. Hasta pronto! 👋')
     return redirect('login')
