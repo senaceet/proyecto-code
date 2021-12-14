@@ -19,6 +19,7 @@ body {
     width: 100%;
     top: 0;
     left: 0;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .nav {
@@ -26,6 +27,7 @@ body {
     justify-content: space-between;
     max-width: 992px;
     margin: 0 auto;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .nav-link {
@@ -66,8 +68,10 @@ nav {
 
 .nav-menu-link:hover {
     background-color: #6a5acd;
+    color: #fff;
     transition: 0.5s;
 }
+
 
 .nav-toggle {
     color: #fff;
@@ -112,6 +116,7 @@ main {
     background: #F5F5F5;
     grid-area: main;
     display: table;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 main h1 {
@@ -124,33 +129,36 @@ main h1 {
 /* Este es el sidebar */
 
 .sidebar {
-    background: #fff;
-    color: #000;
+    background-color: #6a5acd;
     grid-area: sidebar;
     border-right: 1px solid #e0e0e0;
     overflow-y: auto;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
+.sidebar ul li a:hover,
+.active{
+    color: #fff;
+    background-color: #21212146;  
+    transition: 0.5s;
+    border: none;
+}
+  
 .sidebar ul li a {
     display: block;
     padding: 16px;
     margin-bottom: 1px;
     text-decoration: none;
-    color: #6a5acd;
+    color: #fff;
 }
 
-.sidebar ul li:hover {
-    background-color: #6a5acd;
-    color: #fff;
-    transition: 0.5s;
-}
-  
 /* Este es el footer */
 
 footer {
     background: #fff;
     grid-area: footer;
     border-top: 1px solid #e0e0e0;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 /* Estos son los media querys del GRID */
@@ -224,6 +232,10 @@ footer {
     .nav-menu-visible {
         left: 0;
     }    
+    .active  {
+        background-color: #6a5acd;
+        color: #fff;
+    }
 }
 
 /* Estos son los estilos de las tablas */
@@ -235,6 +247,7 @@ footer {
     border: 1px solid #ccc;
     border-collapse: collapse;
     padding: 0;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 
 }
 
