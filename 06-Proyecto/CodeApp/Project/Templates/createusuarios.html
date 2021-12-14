@@ -10,11 +10,6 @@
     <title>Registro | Usuarios</title>
 </head>
 <body>
-    {% if messages %}
-        {% for m in messages %}
-            <div class="alert-message">{{ m.message }}</div>
-        {% endfor %}
-    {% endif %}
     <form action="" method="post">
         {% csrf_token %}
         <div class="main">

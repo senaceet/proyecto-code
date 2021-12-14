@@ -115,6 +115,8 @@ def createusuarios(request):
             formulario.save()
             messages.success(request, 'Usuario registrado correctamente')
             return redirect('dashusuarios')
+        else:
+            messages.error(request, 'Asegúrese de estar escribiendo bien los datos.')
         
     return render(request, 'createusuarios.html', {
         'cusuarios' : cusuarios
