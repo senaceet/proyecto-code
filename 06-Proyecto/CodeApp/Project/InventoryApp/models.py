@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 from django.db import models
 
 class Estado(models.Model):
@@ -182,5 +182,3 @@ class Ventas(models.Model):
         verbose_name_plural = 'Ventas'
         db_table = 'ventas'
         ordering = ['id']
-
-    
