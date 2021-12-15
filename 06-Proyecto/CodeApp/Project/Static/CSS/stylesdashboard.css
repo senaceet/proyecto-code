@@ -89,6 +89,16 @@ nav {
     background-color: #6a5acd;
 }
 
+.nav-link-create {
+    color: #fff;
+    background-color: #029e4b;
+}
+
+.nav-link-create:hover {
+    background-color: #11d86e;
+    transition: 0.5s;
+}
+
 .nav-link-sign-out:hover {
     background-color: #8677e7;
     transition: 0.5s;

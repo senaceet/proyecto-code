@@ -23,8 +23,8 @@ class CustomUserCreationForm(UserCreationForm):
 class ProductosForm(forms.ModelForm):
     NombreProducto = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Nombre del Producto")
     DescripcionProducto = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Descripción del Producto")
-    PrecioCompra = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio del Producto")
-    PrecioVenta = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio de venta del Producto")
+    PrecioCompra = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio del Producto (Docena)")
+    PrecioVenta = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Precio de venta del Producto (Docena)")
     CantidadProductos = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Cantidad de Productos (Docenas)")
     FechaIngreso = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Fecha de Ingreso")
     Talla = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Talla del Producto")
