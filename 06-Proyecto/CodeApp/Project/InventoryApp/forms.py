@@ -5,9 +5,9 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class CustomUserCreationForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Usuario', autocomplete='off')
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Contraseña', autocomplete='off')
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Confirmar contraseña', autocomplete='off')
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Usuario')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Contraseña')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Confirmar contraseña')
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Nombre del usuario')
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}), label='Apellido del usuario')
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}), label='Correo electrónico')
