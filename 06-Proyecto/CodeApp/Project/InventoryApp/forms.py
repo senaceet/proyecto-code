@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import AbstractUser
-from .models import TipoDocumento, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Ventas, PaisOrigen, MyUser
+from .models import TipoDocumento, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Movimientos, PaisOrigen, MyUser, TipoMovimiento
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -77,7 +77,8 @@ class CategoriasForm(forms.ModelForm):
         model = Categorias
         fields = '__all__' # sirve para listarlos todos
 
-class VentasForm(forms.ModelForm):
+"""
+class MovimientosForm(forms.ModelForm):
     Fecha = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Fecha de la Venta")
     DescripcionVenta = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Descripción de la Venta")
     Cantidad = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Cantidad de Productos (Docenas)")
@@ -85,9 +86,9 @@ class VentasForm(forms.ModelForm):
     Clientes = forms.ModelChoiceField(queryset=Clientes.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Cliente")
     # Productos = forms.ModelChoiceField(queryset=Productos.objects.all(), widget=forms.Select(attrs={'class':'input'}), label="Seleccione un Producto")
     class Meta:
-        model = Ventas
+        model = Movimientos
         fields = '__all__' # sirve para listarlos todos
-
+"""
 class MaterialesForm(forms.ModelForm):
     DescripcionMateriales = forms.CharField(widget=forms.TextInput(attrs={'class':'input'}), label="Nombre del Material")
     class Meta:

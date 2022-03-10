@@ -12,6 +12,18 @@ class Estado(models.Model):
         verbose_name_plural = 'Estados'
         db_table = 'estados'
         ordering = ['id']
+
+class TipoMovimiento(models.Model):
+    DescripcionMovimiento = models.CharField('Descripción del movimiento', max_length = 100)
+    
+    def __str__(self):
+        return self.DescripcionMovimiento
+    
+    class Meta: 
+        verbose_name = 'TMovimiento'
+        verbose_name_plural = 'TMovimientos'
+        db_table = 'tipomovimiento'
+        ordering = ['id']
         
 class Marcas(models.Model):
     DescripcionMarca = models.CharField('Descripción de la marca', max_length = 100)
@@ -101,7 +113,44 @@ class Proveedores(models.Model):
         verbose_name_plural = 'Proveedores'
         db_table = 'proveedores'
         ordering = ['id']
+
+class Clientes(models.Model):
+    NombreCliente = models.CharField('Nombre del cliente', max_length = 100)
+    ApellidoCliente = models.CharField('Apellido del cliente', max_length = 100)
+    BarrioCliente = models.CharField('Barrio del cliente', max_length = 100)
+    DireccionCliente = models.CharField('Dirección del cliente', max_length = 100)
+    TelefonoCliente = models.CharField('Teléfono del cliente', max_length = 100)
+    ProductosFrecuentes = models.CharField('Productos que frecuenta', max_length = 100)
+    # Agregar foránea
+    
+    def __str__(self):
+        return self.NombreCliente
+    
+    class Meta: 
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
+        db_table = 'clientes'
+        ordering = ['id']
         
+class Movimientos(models.Model):
+    Fecha = models.DateField('Fecha del movimiento')
+    Cantidad = models.PositiveIntegerField('Cantidad de productos vendidos')
+    PrecioFinal = models.DecimalField('Precio final de la venta', max_digits = 10, decimal_places = 2)
+    Clientes = models.ForeignKey(Clientes, on_delete=models.CASCADE, default='')
+    TipoMovimiento = models.ForeignKey(TipoMovimiento, on_delete=models.CASCADE, default='')
+    Productos = models.ForeignKey(Productos, on_delete=models.CASCADE, default='')
+    # Productos = models.ManyToManyField(Productos, default='', blank=True)
+    # Si es necesario, agregar quién realizó la venta.
+    
+    def __str__(self):
+        return str(self.Cantidad) #Poner Fecha, Producto, Cantidad y Cliente
+    
+    class Meta:
+        verbose_name = 'Movimiento'
+        verbose_name_plural = 'Movimientos'
+        db_table = 'movimientos'
+        ordering = ['id']
+
 class Productos(models.Model):
     NombreProducto = models.CharField('Nombre del producto', max_length = 100)
     DescripcionProducto = models.CharField('Descripción del producto', max_length = 100)
@@ -116,6 +165,9 @@ class Productos(models.Model):
     PaisOrigen = models.ForeignKey(PaisOrigen, on_delete=models.CASCADE, default='')
     Marcas = models.ForeignKey(Marcas, on_delete=models.CASCADE, default='')
     Proveedores = models.ForeignKey(Proveedores, on_delete=models.CASCADE, default='')
+    Clientes = models.ForeignKey(Clientes, on_delete=models.CASCADE, default='')
+    Movimientos = models.ForeignKey(Movimientos, on_delete=models.CASCADE, default='')
+    TipoMovimiento = models.ForeignKey(TipoMovimiento, on_delete=models.CASCADE, default='')
     
     def __str__(self):
         return self.NombreProducto 
@@ -147,40 +199,19 @@ class Usuarios(models.Model):
         db_table = 'usuarios'
         ordering = ['id']
 
-class Clientes(models.Model):
-    NombreCliente = models.CharField('Nombre del cliente', max_length = 100)
-    ApellidoCliente = models.CharField('Apellido del cliente', max_length = 100)
-    BarrioCliente = models.CharField('Barrio del cliente', max_length = 100)
-    DireccionCliente = models.CharField('Dirección del cliente', max_length = 100)
-    TelefonoCliente = models.CharField('Teléfono del cliente', max_length = 100)
-    ProductosFrecuentes = models.CharField('Productos que frecuenta', max_length = 100)
-    # Agregar foránea
+class Inventario(models.Model):
+    Entradas = models.PositiveIntegerField('Cantidad de productos ingresados')
+    Salidas = models.PositiveIntegerField('Cantidad de productos vendidos')
+    TotalInventario = models.PositiveIntegerField('Cantidad de productos en inventario')
+    Productos = models.ForeignKey(Productos, on_delete=models.CASCADE, default='')
     
     def __str__(self):
-        return self.NombreCliente
-    
-    class Meta: 
-        verbose_name = 'Cliente'
-        verbose_name_plural = 'Clientes'
-        db_table = 'clientes'
-        ordering = ['id']
-        
-class Ventas(models.Model):
-    Fecha = models.CharField('Fecha de la venta', max_length = 100)
-    DescripcionVenta = models.CharField('Descripción de la venta', max_length = 100)
-    Cantidad = models.PositiveIntegerField('Cantidad de productos vendidos')
-    PrecioFinal = models.DecimalField('Precio final de la venta', max_digits = 10, decimal_places = 2)
-    Clientes = models.ForeignKey(Clientes, on_delete=models.CASCADE, default='')
-    # Productos = models.ManyToManyField(Productos, default='', blank=True)
-    # Si es necesario, agregar quién realizó la venta.
-    
-    def __str__(self):
-        return str(self.Cantidad) #Poner Fecha, Producto, Cantidad y Cliente
+        return str(self.TotalInventario) #Poner Fecha, Producto, Cantidad y Cliente
     
     class Meta:
-        verbose_name = 'Venta'
-        verbose_name_plural = 'Ventas'
-        db_table = 'ventas'
+        verbose_name = 'Inventario'
+        verbose_name_plural = 'Inventarios'
+        db_table = 'inventario'
         ordering = ['id']
 
 class MyUser(AbstractUser):
@@ -206,3 +237,4 @@ class MyUser(AbstractUser):
         verbose_name_plural = 'Usuarios'
         db_table = 'myuser'
         ordering = ['id']
+

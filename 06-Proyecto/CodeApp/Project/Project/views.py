@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 # Importo los modelos de la app.
 from InventoryApp.models import Estado
-from InventoryApp.models import Ventas
+from InventoryApp.models import Movimientos
 from InventoryApp.models import Productos
 from InventoryApp.models import Categorias
 from InventoryApp.models import Clientes
@@ -17,6 +17,7 @@ from InventoryApp.models import PaisOrigen
 from InventoryApp.models import Proveedores
 from InventoryApp.models import Roles
 from InventoryApp.models import TipoDocumento
+from InventoryApp.models import TipoMovimiento
 from InventoryApp.models import MyUser
 # Forms 
 from InventoryApp.forms import ProductosForm
@@ -25,7 +26,7 @@ from InventoryApp.forms import ProveedoresForm
 from InventoryApp.forms import RolesForm
 from InventoryApp.forms import TipoDocumentoForm
 from InventoryApp.forms import CategoriasForm
-from InventoryApp.forms import VentasForm
+from InventoryApp.forms import MovimientosForm
 from InventoryApp.forms import MaterialesForm
 from InventoryApp.forms import EstadosForm
 from InventoryApp.forms import MarcasForm
