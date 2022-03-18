@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Productos
-from .models import Ventas
+# from .models import Ventas
 from .models import Roles
 from .models import Estado
 from .models import Marcas
@@ -21,7 +21,7 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(Productos)
-admin.site.register(Ventas)
+# admin.site.register(Ventas)
 admin.site.register(Roles)
 admin.site.register(Estado)
 admin.site.register(Marcas)

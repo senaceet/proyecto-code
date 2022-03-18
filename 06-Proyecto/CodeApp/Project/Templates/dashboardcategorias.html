@@ -68,7 +68,7 @@
         <!--------------------------------------------------Sidebar---------------------------------------------------------->
         <div class="sidebar">
             <ul>
-                <li><a href="{% url 'dashventas' %}">
+                <li><a href="">
                     <span class="icon"><i class="fas fa-money-bill-alt"></i></span>
                     <span class="title">Ventas</span>
                 </a></li>
@@ -129,7 +129,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for categorias in categorias %}
+                    {% for categorias in entity %}
                     <tr>
                         <td data-label="Descripción de la categoría">{{categorias.DescripcionCategoria}}</td>
                         <td data-label="Gestión">
@@ -140,6 +140,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>

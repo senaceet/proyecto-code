@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
@@ -26,12 +27,14 @@ from InventoryApp.forms import ProveedoresForm
 from InventoryApp.forms import RolesForm
 from InventoryApp.forms import TipoDocumentoForm
 from InventoryApp.forms import CategoriasForm
-from InventoryApp.forms import MovimientosForm
+# from InventoryApp.forms import MovimientosForm
 from InventoryApp.forms import MaterialesForm
 from InventoryApp.forms import EstadosForm
 from InventoryApp.forms import MarcasForm
 from InventoryApp.forms import PaisesForm
 from InventoryApp.forms import CustomUserCreationForm
+from django.core.paginator import Paginator
+from django.http import Http404
 # ORM - Object Relational Mapping.
 
 def dashboardventas(request):
@@ -48,8 +51,17 @@ def dashboardproductos(request):
     
 def dashboardcategorias(request):
     categorias = (Categorias.objects.all()) # Creo variable que traiga todos los datos de la tabla Categorias.
+    page = request.GET.get('page', 1)
+
+    try: 
+        paginator = Paginator(categorias, 5)
+        categorias = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardcategorias.html', {
-        'categorias' : categorias # Con este código busco todos los datos de la tabla Categorias y los envío a la vista.
+        'entity' : categorias,
+        'paginator': paginator # Con este código busco todos los datos de la tabla Categorias y los envío a la vista.
 } )
     
 def dashboardclientes(request):
@@ -529,7 +541,7 @@ def login_view(request):
         if user:
             login(request)
             messages.success(request, 'Hola, {} 🙋‍♂️'.format(user.username))
-            return redirect('dashventas')
+            return redirect('dashestado')
         else: 
             messages.error(request, '⚠ Usuario y/o contraseña incorrectos.')
     return render(request, 'login.html',{

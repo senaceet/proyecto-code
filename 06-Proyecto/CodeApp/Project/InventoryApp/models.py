@@ -138,7 +138,7 @@ class Movimientos(models.Model):
     PrecioFinal = models.DecimalField('Precio final de la venta', max_digits = 10, decimal_places = 2)
     Clientes = models.ForeignKey(Clientes, on_delete=models.CASCADE, default='')
     TipoMovimiento = models.ForeignKey(TipoMovimiento, on_delete=models.CASCADE, default='')
-    Productos = models.ForeignKey(Productos, on_delete=models.CASCADE, default='')
+    # Productos = models.ForeignKey(Productos, on_delete=models.CASCADE, default='')
     # Productos = models.ManyToManyField(Productos, default='', blank=True)
     # Si es necesario, agregar quién realizó la venta.
     
