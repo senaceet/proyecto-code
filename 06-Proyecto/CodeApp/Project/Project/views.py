@@ -66,56 +66,138 @@ def dashboardcategorias(request):
     
 def dashboardclientes(request):
     clientes = (Clientes.objects.all()) # Creo variable que traiga todos los datos de la tabla Clientes.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(clientes, 5)
+        clientes = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardclientes.html', {
-        'clientes' : clientes # Con este código busco todos los datos de la tabla Clientes y los envío a la vista.
+        'entity' : clientes,
+        'paginator': paginator # Con este código busco todos los datos de la tabla Clientes y los envío a la vista.
 } )
 
 def dashboardestado(request):
     estados = (Estado.objects.all()) # Creo variable que traiga todos los datos de la tabla Estado.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(estados, 5)
+        estados = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardestado.html', {
-        'estado' : estados # Con este código busco todos los datos de la tabla Estado y los envío a la vista.
+        'entity' : estados,
+        'paginator': paginator # Con este código busco todos los datos de la tabla Estado y los envío a la vista.
 } )
     
 def dashboardmarcas(request):
     marcas = (Marcas.objects.all()) # Creo variable que traiga todos los datos de la tabla Marcas.
+    page = request.GET.get('page', 1)
+
+    try: 
+        paginator = Paginator(marcas, 5)
+        marcas = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardmarcas.html', {
-        'marcas' : marcas # Con este código busco todos los datos de la tabla Marcas y los envío a la vista.
+        'entity' : marcas,
+        'paginator' : paginator # Con este código busco todos los datos de la tabla Marcas y los envío a la vista.
+
 } )
     
 def dashboardmateriales(request):
     materiales = (Materiales.objects.all()) # Creo variable que traiga todos los datos de la tabla Materiales.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(materiales, 5)
+        materiales = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardmateriales.html', {
-        'materiales' : materiales # Con este código busco todos los datos de la tabla Materiales y los envío a la vista.
+        'entity' : materiales,
+        'paginator' : paginator # Con este código busco todos los datos de la tabla Materiales y los envío a la vista.
 } )
     
 def dashboardpaisorigen(request):
     paisorigen = (PaisOrigen.objects.all()) # Creo variable que traiga todos los datos de la tabla PaisOrigen.
+    page = request.GET.get('page', 1)
+    
+    try:
+        paginator = Paginator(paisorigen, 5)
+        paisorigen = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardpaisorigen.html', {
-        'paisorigen' : paisorigen # Con este código busco todos los datos de la tabla PaisOrigen y los envío a la vista.
+        'entity' : paisorigen,
+        'paginator' : paginator # Con este código busco todos los datos de la tabla PaisOrigen y los envío a la vista.
 } )
     
 def dashboardproveedores(request):
     proveedores = (Proveedores.objects.all()) # Creo variable que traiga todos los datos de la tabla Proveedores.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(proveedores, 5)
+        proveedores = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardproveedores.html', {
-        'proveedores' : proveedores # Con este código busco todos los datos de la tabla Proveedores y los envío a la vista.
+        'entity' : proveedores,
+        'paginator' : paginator # Con este código busco todos los datos de la tabla Proveedores y los envío a la vista.
 } )
     
 def dashboardroles(request):
     roles = (Roles.objects.all()) # Creo variable que traiga todos los datos de la tabla Roles.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(roles, 5)
+        roles = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardroles.html', {
-        'roles' : roles # Con este código busco todos los datos de la tabla Roles y los envío a la vista.
+        'entity' : roles,
+        'paginator' : paginator # Con este código busco todos los datos de la tabla Roles y los envío a la vista.
 } )
     
 def dashboardtipodoc(request):
-    tipodoc = (TipoDocumento.objects.all()) # Creo variable que traiga todos los datos de la tabla TipoDoc.
+    tipodoc = (TipoDocumento.objects.all())
+    page = request.GET.get('page', 1) # Creo variable que traiga todos los datos de la tabla TipoDoc.
+
+    try:
+        paginator = Paginator(tipodoc, 5)
+        tipodoc = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardtipodoc.html', {
-        'tipodoc' : tipodoc
+        'entity' : tipodoc,
+        'paginator' : paginator
 } )
     
 def dashboardusuarios(request):
     usuarios = (MyUser.objects.all()) # Creo variable que traiga todos los datos de la tabla Usuarios.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(usuarios, 5)
+        usuarios = paginator.page(page)
+    except:
+        raise Http404
+
     return render(request, 'dashboardusuarios.html', {
-        'usuarios' : usuarios
+        'entity' : usuarios,
+        'paginator' : paginator
 } )
     
 # Funciones de agregar utilizando Forms.py

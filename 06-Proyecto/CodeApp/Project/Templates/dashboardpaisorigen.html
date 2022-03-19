@@ -129,7 +129,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for paisorigen in paisorigen %}
+                    {% for paisorigen in entity %}
                     <tr>
                         <td data-label="Rol">{{paisorigen.DescripcionPais}}</td>
                         <td data-label="Gestión">
@@ -140,6 +140,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>

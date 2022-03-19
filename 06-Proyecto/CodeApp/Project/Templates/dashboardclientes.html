@@ -134,7 +134,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for clientes in clientes %}
+                    {% for clientes in entity %}
                     <tr>
                         <td data-label="Nombre del cliente">{{clientes.NombreCliente}}</td>
                         <td data-label="Apellido del cliente">{{clientes.ApellidoCliente}}</td>
@@ -150,6 +150,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>

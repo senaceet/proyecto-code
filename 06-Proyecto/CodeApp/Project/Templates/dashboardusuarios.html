@@ -137,7 +137,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for usuarios in usuarios %}
+                    {% for usuarios in entity %}
                     <tr>
                         <td data-label="Nombre del usuario">{{usuarios.first_name}}</td>
                         <td data-label="Apellido del usuario">{{usuarios.last_name}}</td>
@@ -156,6 +156,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>

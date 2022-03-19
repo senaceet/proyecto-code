@@ -129,7 +129,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for tipodoc in tipodoc %}
+                    {% for tipodoc in entity %}
                     <tr>
                         <td data-label="Tipo de documento">{{tipodoc.DescripcionTipoDoc}}</td>
                         <td data-label="Gestión">
@@ -140,6 +140,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>

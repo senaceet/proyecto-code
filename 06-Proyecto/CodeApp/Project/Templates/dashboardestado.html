@@ -129,7 +129,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for estado in estado %}
+                    {% for estado in entity %}
                     <tr>
                         <td data-label="Rol">{{estado.DescripcionEstado}}</td>
                         <td data-label="Gestión">
@@ -140,6 +140,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>

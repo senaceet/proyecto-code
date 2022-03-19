@@ -133,7 +133,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for proveedores in proveedores %}
+                    {% for proveedores in entity %}
                     <tr>
                         <td data-label="Nombre del proveedor">{{proveedores.NombreProveedor}}</td>
                         <td data-label="Dirección del proveedor">{{proveedores.DireccionProveedor}}</td>
@@ -148,6 +148,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
         </main>
         
         <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>
