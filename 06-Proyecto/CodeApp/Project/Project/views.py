@@ -1,3 +1,4 @@
+from curses.ascii import HT
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
@@ -20,6 +21,7 @@ from InventoryApp.models import Roles
 from InventoryApp.models import TipoDocumento
 from InventoryApp.models import TipoMovimiento
 from InventoryApp.models import MyUser
+from InventoryApp.models import Inventario
 # Forms 
 from InventoryApp.forms import ProductosForm
 from InventoryApp.forms import ClientesForm
@@ -37,10 +39,19 @@ from django.core.paginator import Paginator
 from django.http import Http404
 # ORM - Object Relational Mapping.
 
-def dashboardventas(request):
-    ventas = (Ventas.objects.all()) # Creo variable que traiga todos los datos de la tabla Ventas.
-    return render(request, 'dashboardventas.html', {
-        'ventas' : ventas # Con este código busco todos los datos de la tabla Ventas y los envío a la vista. 
+def dashboardinventario(request):
+    inventario = (Inventario.objects.all()) # Creo variable que traiga todos los datos de la tabla Ventas.
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(inventario, 5)
+        inventario = paginator.page(page)
+    except:
+        raise Http404
+
+    return render(request, 'dashboardinventario.html', {
+        'entity' : inventario,
+        'paginator' : paginator # Con este código busco todos los datos de la tabla Ventas y los envío a la vista. 
 } )
     
 def dashboardproductos(request):

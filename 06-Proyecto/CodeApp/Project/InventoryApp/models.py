@@ -200,10 +200,10 @@ class Usuarios(models.Model):
         ordering = ['id']
 
 class Inventario(models.Model):
+    Productos = models.ForeignKey(Productos, on_delete=models.CASCADE, default='')
     Entradas = models.PositiveIntegerField('Cantidad de productos ingresados')
     Salidas = models.PositiveIntegerField('Cantidad de productos vendidos')
     TotalInventario = models.PositiveIntegerField('Cantidad de productos en inventario')
-    Productos = models.ForeignKey(Productos, on_delete=models.CASCADE, default='')
     
     def __str__(self):
         return str(self.TotalInventario) #Poner Fecha, Producto, Cantidad y Cliente

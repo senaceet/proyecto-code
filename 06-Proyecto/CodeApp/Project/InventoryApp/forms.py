@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import AbstractUser
-from .models import TipoDocumento, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Movimientos, PaisOrigen, MyUser, TipoMovimiento
+from .models import TipoDocumento, Estado, Productos, Materiales, Categorias, PaisOrigen, Marcas, Proveedores, Clientes, Roles, Movimientos, PaisOrigen, MyUser, TipoMovimiento, Inventario
 from django.contrib.auth.forms import UserCreationForm
 
 

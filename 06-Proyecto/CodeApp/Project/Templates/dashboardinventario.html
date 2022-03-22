@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/stylesdashboard.css' %}">
+    <script defer src="{% static 'JS/main.js' %}"></script>
+    <link rel="shortcut icon" href="https://i.imgur.com/rWq5AGz.png" type="image/x-icon">
+    <title>Dashboard | Inventario</title>
+</head>
+<body>
+    {% block js %}
+        <script>
+            function eliminarVenta(id){
+                Swal.fire({
+                title: '¿Estás seguro de querer eliminar esta venta?',
+                text: "Si eliminas la venta, después no podrás restaurarla.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, eliminar.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "eliminarventas/"+id+""
+                }
+            })
+        }
+            function cerrarSesion(){
+                Swal.fire({
+                title: '¿Estás seguro de querer cerrar sesión?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, cerrar sesión.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "logout"
+                }
+            })
+        }
+        </script>
+    {% endblock %}
+
+    <div class="container">
+        <!---------------------------------------------Navbar------------------------------------------------------------>
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="logo nav-link">Violetas</a>
+                <button class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a href="" class="nav-menu-link nav-link nav-link-create">Crear Venta</a></li>
+                    <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Buscar</a></li>
+                    <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Mi perfil</a></li>
+                    <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Configuración</a></li>
+                    <li class="nav-menu-item"><a href="#" onclick="cerrarSesion()" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--------------------------------------------------Sidebar---------------------------------------------------------->
+        <div class="sidebar">
+            <ul>
+                <li><a href="" class="active">
+                    <span class="icon"><i class="fas fa-money-bill-alt"></i></span>
+                    <span class="title">Ventas</span>
+                </a></li>
+                <li><a href="{% url 'dashproductos' %}">
+                    <span class="icon"><i class="fas fa-box-open"></i></span>
+                    <span class="title">Productos</span>
+                </a></li>
+                <li><a href="{% url 'dashclientes' %}">
+                    <span class="icon"><i class="fas fa-user-friends"></i></span>
+                    <span class="title">Clientes</span>
+                </a></li>
+                <li><a href="{% url 'dashproveedores' %}">
+                    <span class="icon"><i class="fas fa-truck"></i></span>
+                    <span class="title">Proveedores</span>
+                </a></li>
+                <li><a href="{% url 'dashusuarios' %}">
+                    <span class="icon"><i class="fas fa-users-cog"></i></span>
+                    <span class="title">Usuarios</span>
+                </a></li>
+                <li><a href="{% url 'dashmateriales' %}">
+                    <span class="icon"><i class="fas fa-socks"></i></span>
+                    <span class="title">Materiales</span>
+                </a></li>
+                <li><a href="{% url 'dashestado' %}">
+                    <span class="icon"><i class="fas fa-toggle-on"></i></span>
+                    <span class="title">Estado</span>
+                </a></li>
+                <li><a href="{% url 'dashmarcas' %}">
+                    <span class="icon"><i class="fas fa-tshirt"></i></span>
+                    <span class="title">Marcas</span>
+                </a></li>
+                <li><a href="{% url 'dashcategoria' %}">
+                    <span class="icon"><i class="fas fa-bookmark"></i></span>
+                    <span class="title">Categoría</span>
+                </a></li>
+                <li><a href="{% url 'dashpais' %}">
+                    <span class="icon"><i class="fas fa-globe-americas"></i></span>
+                    <span class="title">País de Origen</span>
+                </a></li>
+                <li><a href="{% url 'dashtipodoc' %}">
+                    <span class="icon"><i class="fas fa-passport"></i></span>
+                    <span class="title">Tipo de Documento</span>
+                </a></li>
+                <li><a href="{% url 'dashroles' %}">
+                    <span class="icon"><i class="fas fa-address-book"></i></span>
+                    <span class="title">Roles</span>
+                </a></li>
+            </ul>
+        </div>
+        <!-----------------------------------------Main Container----------------------------------------------------------->
+        <main>
+            <h1>Listado del Inventario.</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Entradas</th>
+                        <th>Salidas</th>
+                        <th>Total inventario</th>
+                        <th>Gestión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inventario in entity %}
+                    <tr>
+                        <td data-label="Producto">{{inventario.Producto}}</td>
+                        <td data-label="Entradas">{{inventario.Entradas}}</td>
+                        <td data-label="Salidas">{{inventario.Salidas}}</td>
+                        <td data-label="Total inventario">{{inventario.TotalInventario}}</td>
+                        <td data-label="Gestión">
+                            <a href=""><i class="fas fa-edit"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+        
+        <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>
+      </div>
+
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://kit.fontawesome.com/373d4fee53.js" crossorigin="anonymous"></script>
+      {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    text: '{{ m.message }}',
+                    timer: 2000
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
