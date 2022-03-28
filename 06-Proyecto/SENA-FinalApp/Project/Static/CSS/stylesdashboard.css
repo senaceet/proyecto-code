@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}  
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+/* Esta es toda la topbar */
+
+.header {
+    background-color: #212121;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 992px;
+    margin: 0 auto;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 35px;
+    line-height: 55px;
+    color: #fff;
+}
+
+nav {
+    color: #fff;
+    grid-area: nav;
+}
+
+.nav-menu {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.nav-menu-item {
+    font-size: 1rem;
+    margin: 0 10px;
+    line-height: 55px;
+    width: max-content;
+}
+
+.nav-menu-link {
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
+.nav-menu-link:hover {
+    background-color: #6a5acd;
+    color: #fff;
+    transition: 0.5s;
+}
+
+
+.nav-toggle {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    display: none;
+    cursor: pointer;
+}
+
+.nav-link-sign-out {
+    color: #fff;
+    background-color: #6a5acd;
+}
+
+.nav-link-create {
+    color: #fff;
+    background-color: #029e4b;
+}
+
+.nav-link-create:hover {
+    background-color: #11d86e;
+    transition: 0.5s;
+}
+
+.nav-link-sign-out:hover {
+    background-color: #8677e7;
+    transition: 0.5s;
+}
+
+/* Este es el container */
+  
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1fr 0.2fr;
+    grid-template-areas:
+      "nav nav nav nav"
+      "sidebar main main main"
+      "sidebar main main main"
+      "sidebar footer footer footer";
+    font-size: 1em;
+    color: #000;
+}
+
+/* Este es el main container */
+
+main {
+    background: #F5F5F5;
+    grid-area: main;
+    display: table;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+main h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+  
+/* Este es el sidebar */
+
+.sidebar {
+    background-color: #6a5acd;
+    grid-area: sidebar;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.sidebar ul li a:hover,
+.active{
+    color: #fff;
+    background-color: #21212146;  
+    transition: 0.5s;
+    border: none;
+}
+  
+.sidebar ul li a {
+    display: block;
+    padding: 16px;
+    margin-bottom: 1px;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Este es el footer */
+
+footer {
+    background: #fff;
+    grid-area: footer;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Estos son los media querys del GRID */
+  
+@media only screen and (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.4fr 1.5fr 2.2fr 1.2fr 1.2fr 1.2fr 0.8fr;
+      grid-template-areas:
+        "nav"
+        "sidebar"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main";
+        grid-gap: 0rem;
+    }
+}
+
+/* Estos son los media querys de la nav*/
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 20px;
+    }
+    footer {
+        display: none;
+    }
+    .sidebar {
+        background-color: #212121;
+    }
+    .sidebar ul li a {
+        color: #fff;
+    }
+    .header {
+        height: 60px;
+    }
+    .logo {
+        font-size: 1rem;
+        padding: 0 20px;
+        line-height: 60px;
+    }
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+        background-color: #3a3838;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 100%;
+        padding: 20px 0;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        left: 100%;
+        transition: 0.5s;
+    }
+    .nav-menu-item {
+        line-height: 70px;
+    }
+    .nav-menu-link:hover,
+    .nav-menu-link_active {
+        background: none;
+        color: #6a5acd;
+        transition: 0.5s;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .nav-menu-visible {
+        left: 0;
+    }    
+    .active  {
+        background-color: #6a5acd;
+        color: #fff;
+    }
+
+    .paginator-container {
+        width: 100%;
+    }
+}
+
+/* Estos son los estilos de las tablas */
+
+.table {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+}
+
+.table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    font-size: 1rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.table td {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.table thead th{ 
+    background-color: #6a5acd;
+    color: #fff;
+}
+
+.table i:active {
+    color: #6a5acd;
+}
+
+.table i {
+    color: #6a5acd;
+}
+
+.table i:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+/* Estos son las media querys de la tabla */
+
+@media screen and (max-width: 1100px) {
+    footer {
+        display: none;
+    }
+    .table {
+        border: 0px;
+    }
+    .table caption {
+        font-size: 22px;
+    }
+    .table thead {
+        display: none;
+    }
+    .table tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .table  td:last-child {
+        border-bottom: 0px;
+    }
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        float: left;
+    }
+    .table i {
+        color: #6a5acd;
+        font-size: 22px;
+        margin-right: 15px;
+    }
+}
+
+.paginator-container {
+    background-color: #F5F5F5;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    list-style: none;
+    padding: 10px;
+}
+
+.page-item {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.page-link {
+    color: #6a5acd;
+    text-decoration: none;
+}
+
+.active-page {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 800;
+    transition: 0.5s;
+    border: none;
+}
+
+.page-link:hover {
+    text-decoration: underline;
+}
+
+
+#nav-search {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+.search-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.button-container button {
+    background-color: #6a5acd;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #473f7a;
+    color: #fff;
+    transition: 0.5s;
+}
+
+
+.search-container input {
+    width: 35%;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    outline: none;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+}
+
+.search-container button {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container input:hover {
+    border: 1px solid #6a5acd;
+    transition: 0.5s;
+}
+
+.search-container input:focus {
+    border: 1px solid #6a5acd;
+}
+
+.search-container select {
+    width: 25%;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+.search-container option {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+}

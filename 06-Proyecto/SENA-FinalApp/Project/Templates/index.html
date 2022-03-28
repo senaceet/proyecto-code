@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Este es el sitio oficial de la distribuidora de ropa infantil Violetas.">
+    <meta name="keywords" content="Violetas, Distribuidora de ropa infantil violetas, Ropa infantil">
+    <meta name="author" content="Joan Sebastián Prieto Contreras">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!--AOS-->
+    <link rel="stylesheet" href="{% static 'CSS/stylesindex.css' %}">
+    <link rel="shortcut icon" href="{% static 'IMG/LogoPngVioletas.png' %}" type="image/x-icon">
+    <script defer src="{% static 'JS/hamburgerindex.js' %}"></script>
+    <title>Index | Violetas</title>
+</head>
+<body>
+    <!--This is the header section-->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo nav-link"><i class="fas fa-tshirt"></i> Violetas</a>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item"><a href="#about-him-anchor" class="nav-menu-link nav-link">Sobre nosotras</a></li>
+                <li class="nav-menu-item"><a href="#projects-anchor" class="nav-menu-link nav-link">Productos</a></li>
+                <li class="nav-menu-item"><a href="{% url 'login' %}" class="nav-menu-link nav-link login">Iniciar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--This is the main section-->
+    <main class="main-container">
+        <div class="child-container welcome-container">
+            <!--<img src="{% static 'IMG/Thom.jpg' %}" alt="" id="picture">-->
+            <span class="welcome">
+                ¡Hola, somos Violetas!
+             </span>
+        </div>
+        <div class="child-container" id="about-him-anchor">
+            <h2>Sobre nosotras</h2>
+            <p>
+              Distribuidora de medias Violetas</b> es una empresa familiar que surgió como una alternativa laboral cuyo propósito, en principio, era poder encontrar la seguridad del empleo en la ciudad de Bogotá. Aunque al principio su fundadora, <b>Sonia Contreras Fierro</b>, tuvo un camino difícil, recientemente se celebraron los 10 años de existencia de la empresa. La <b>Distribuidora de medias Violetas</b> además de brindar un servicio idóneo a la necesidad de cada cliente, tiene como pilar distribuir los mejores productos, al mejor precio y con estándares de calidad altos. 
+            </p>
+            <br>
+            <p>
+                <div class="logos-container">
+                  <img src="https://img.icons8.com/color/48/000000/clothes.png"/>
+                  <img src="https://img.icons8.com/color/48/000000/denim-shorts.png"/>
+                  <img src="https://img.icons8.com/color/48/000000/green-dress.png"/>
+                  <img src="https://img.icons8.com/color/48/000000/coat.png"/>
+                  <img src="https://img.icons8.com/office/40/000000/socks.png"/>
+                  <img src="https://img.icons8.com/color/48/000000/fireman-boots--v1.png"/>
+                  <img src="https://img.icons8.com/color/48/000000/blankie.png"/>            
+                </div>
+            </p>
+            <br>       
+            <hr>
+            <br>
+        </div>
+
+
+        <div class="child-container"  id="projects-anchor">
+            <h2>Productos</h2>
+            <div class="main">
+                <ul class="cards">
+                  <li class="cards_item">
+                    <div class="card" data-aos="zoom-in-right">
+                      <div class="card_image"><img src="https://img.icons8.com/stickers/100/000000/pair-of-socks.png"/></div>
+                      <div class="card_content">
+                        <h3 class="card_title">Medias</h3>
+                        <p class="card_text">La distribuidora de medias Violetas ofrece una gran cantidad de variedad de medias para niños y niñas.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="cards_item">
+                    <div class="card" data-aos="zoom-in-up">
+                      <div class="card_image"><img src="https://img.icons8.com/stickers/100/000000/trainers--v1.png"/></div>
+                      <div class="card_content">
+                        <h3 class="card_title">Zapatos</h3>
+                        <p class="card_text">Desde zapatos de charól hasta zapatos para los primeros pasos son distribuidos por Violetas.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="cards_item">
+                    <div class="card" data-aos="zoom-in-left">
+                      <div class="card_image"><img src="https://img.icons8.com/stickers/100/000000/panties.png"/></div>
+                      <div class="card_content">
+                        <h3 class="card_title">Ropa interior</h3>
+                        <p class="card_text">La distribuidora de medias Violetas distribuye una inmensa variedad de ropa interior de alta calidad.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="cards_item">
+                    <div class="card" data-aos="zoom-out-right">
+                      <div class="card_image"><img src="https://img.icons8.com/stickers/100/000000/green-dress--v1.png"/></div>
+                      <div class="card_content">
+                        <h3 class="card_title">Vestidos</h3>
+                        <p class="card_text">Distribuimos una amplia variedad de vestidos para niña con diferentes estampados y colores.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="cards_item">
+                    <div class="card" data-aos="zoom-out-up">
+                      <div class="card_image"><img src="https://img.icons8.com/stickers/100/000000/jumper.png"/></div>
+                      <div class="card_content">
+                        <h3 class="card_title">Sacos</h3>
+                        <p class="card_text">Con el fin de cuidar a los niños, la distribuidora de medias Violetas provee lindos y cálidos sacos.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="cards_item">
+                    <div class="card" data-aos="zoom-out-left">
+                      <div class="card_image"><img src="https://img.icons8.com/stickers/100/000000/womens-blouse.png"/></div>
+                      <div class="card_content">
+                        <h3 class="card_title">Camisetas</h3>
+                        <p class="card_text">La distribuidora de medias Violetas distribuye múltiples tipos de camisetas para niños y niñas.</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </main>
+    <!--This is the footer section-->
+    <footer class="footer">
+        <h5>© 2022 CodeProject - 2021 | Joan Sebastián Prieto C.</h5>
+    </footer>
+    
+    <script src="https://kit.fontawesome.com/373d4fee53.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

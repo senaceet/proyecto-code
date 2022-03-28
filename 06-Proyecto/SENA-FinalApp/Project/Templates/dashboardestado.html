@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/stylesdashboard.css' %}">
+    <script defer src="{% static 'JS/main.js' %}"></script>
+    <link rel="shortcut icon" href="https://i.imgur.com/rWq5AGz.png" type="image/x-icon">
+    <title>Dashboard | Estado</title>
+</head>
+<body>
+    {% block js %}
+        <script>
+            function eliminarEstados(id){
+                Swal.fire({
+                title: '¿Estás seguro de querer eliminar este estado?',
+                text: "Si eliminas el estado, después no podrás restaurarlo.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, eliminar.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "eliminarestados/"+id+""
+                }
+            })
+        }
+        function cerrarSesion(){
+                Swal.fire({
+                title: '¿Estás seguro de querer cerrar sesión?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, cancelar.',
+                confirmButtonText: 'Sí, cerrar sesión.'
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "logout"
+                }
+            })
+        }
+        </script>
+    {% endblock %}
+    <div class="container">
+        <!---------------------------------------------Navbar------------------------------------------------------------>
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="logo nav-link">Violetas</a>
+                <button class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a href="{% url 'createestados' %}" class="nav-menu-link nav-link nav-link-create">Crear Estado</a></li>
+                    <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link"><i class="fas fa-user-cog"></i> {{ user.username }}, {{ user.Roles }}</a></li>
+                    <li class="nav-menu-item"><a href="#" onclick="cerrarSesion()" class="nav-menu-link nav-link nav-link-sign-out">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--------------------------------------------------Sidebar---------------------------------------------------------->
+        <div class="sidebar">
+            <ul>
+                <li><a href="{% url 'dashmovimientos' %}">
+                    <span class="icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="title">Movimientos</span>
+                </a></li>
+                <li><a href="{% url 'dashproductos' %}">
+                    <span class="icon"><i class="fas fa-box-open"></i></span>
+                    <span class="title">Productos</span>
+                </a></li>
+                <li><a href="{% url 'dashclientes' %}">
+                    <span class="icon"><i class="fas fa-user-friends"></i></span>
+                    <span class="title">Clientes</span>
+                </a></li>
+                <li><a href="{% url 'dashproveedores' %}">
+                    <span class="icon"><i class="fas fa-truck"></i></span>
+                    <span class="title">Proveedores</span>
+                </a></li>
+                <li><a href="{% url 'dashusuarios' %}">
+                    <span class="icon"><i class="fas fa-users-cog"></i></span>
+                    <span class="title">Usuarios</span>
+                </a></li>
+                <li><a href="{% url 'dashmateriales' %}">
+                    <span class="icon"><i class="fas fa-socks"></i></span>
+                    <span class="title">Materiales</span>
+                </a></li>
+                <li><a href="{% url 'dashestado' %}" class="active">
+                    <span class="icon"><i class="fas fa-toggle-on"></i></span>
+                    <span class="title">Estado</span>
+                </a></li>
+                <li><a href="{% url 'dashmarcas' %}">
+                    <span class="icon"><i class="fas fa-tshirt"></i></span>
+                    <span class="title">Marcas</span>
+                </a></li>
+                <li><a href="{% url 'dashcategoria' %}">
+                    <span class="icon"><i class="fas fa-bookmark"></i></span>
+                    <span class="title">Categoría</span>
+                </a></li>
+                <li><a href="{% url 'dashpais' %}">
+                    <span class="icon"><i class="fas fa-globe-americas"></i></span>
+                    <span class="title">País de Origen</span>
+                </a></li>
+                <li><a href="{% url 'dashtipodoc' %}">
+                    <span class="icon"><i class="fas fa-passport"></i></span>
+                    <span class="title">Tipo de Documento</span>
+                </a></li>
+                <li><a href="{% url 'dashtipomovimiento' %}">
+                    <span class="icon"><i class="fas fa-money-bill-alt"></i></span>
+                    <span class="title">Tipo de Movimiento</span>
+                </a></li>
+                <li><a href="{% url 'dashroles' %}">
+                    <span class="icon"><i class="fas fa-address-book"></i></span>
+                    <span class="title">Roles</span>
+                </a></li>
+            </ul>
+        </div>
+        <!-----------------------------------------Main Container----------------------------------------------------------->
+        <main>
+            <h1>Listado de los Estados.</h1>
+            <table class="table">
+                <form method="get">
+                    <div class="search-container">
+                        <select name="" id="">
+                            <option value="" default>Filtros</option>
+                            <option value="">ID - Incremental</option>
+                            <option value="">Descripción</option>
+                            <option value="">Estado</option>
+                        </select>
+                    <div class="button-container">
+                        <input type="search" name="Search" id="Search" placeholder="Ingrese el término de búsqueda...">
+                        <button type="submit" class=""><i class="fas fa-search"></i></button>
+                    </div>
+                    </div>
+                    </form>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descripción del estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estado in entity %}
+                    <tr>
+                        <td data-label="Rol">{{estado.id}}</td>
+                        <td data-label="Rol">{{estado.DescripcionEstado}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div>
+                {% include 'paginator.html' %}
+            </div>
+        </main>
+        
+        <footer><span class="copyleft">&copy; CodeProject - 2021 | Joan Sebastián Prieto C.</span></footer>
+      </div>
+
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://kit.fontawesome.com/373d4fee53.js" crossorigin="anonymous"></script>
+
+      {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    text: '{{ m.message }}',
+                    timer: 2000
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
