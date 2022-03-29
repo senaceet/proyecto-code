@@ -23,7 +23,7 @@ POSTGRESQL = {
 MYSQL = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'codeprojectdb',
+        'NAME': 'codeproject',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
